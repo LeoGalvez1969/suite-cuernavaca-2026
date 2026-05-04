@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Política de Privacidad · Privacy Policy · Suite Cuernavaca Mundial 2026</title>
+<meta name="description" content="Aviso de privacidad · Privacy notice — tratamiento de datos personales para la reservación y estancia en Suite Cuernavaca durante el Mundial 2026.">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --teal-deep:#0e2a30; --teal:#1a4a52; --teal-mid:#2a6b74; --teal-light:#3a8a95;
+    --gold:#c9a84c; --gold-soft:#e8c97a;
+    --cream:#faf8f4; --paper:#faf5ee; --ivory:#f5f0e8;
+    --ink:#1a1a2e; --ink-soft:#2d2d2d; --muted:#6b6b6b;
+    --line:rgba(26,74,82,0.18);
+    --shadow:0 2px 24px rgba(14,42,48,0.08);
+    --shadow-card:0 4px 32px rgba(14,42,48,0.12);
+  }
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Georgia','Times New Roman',serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.7;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+  /* ==== HEADER ==== */
+  .header{
+    background:linear-gradient(135deg,var(--teal-deep) 0%,var(--teal) 60%,var(--teal-mid) 100%);
+    color:var(--cream);
+    padding:48px 24px 56px;
+    position:relative;
+    overflow:hidden;
+    border-bottom:4px solid var(--gold);
+  }
+  .header::before{
+    content:"";
+    position:absolute;inset:0;
+    background-image:radial-gradient(circle at 15% 30%,rgba(201,168,76,0.12) 0%,transparent 40%),
+                     radial-gradient(circle at 85% 70%,rgba(58,138,149,0.18) 0%,transparent 50%);
+    pointer-events:none;
+  }
+  .header-inner{max-width:880px;margin:0 auto;position:relative;z-index:1}
+  .crest{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:'Georgia',serif;font-size:13px;letter-spacing:0.18em;text-transform:uppercase;
+    color:var(--gold-soft);margin-bottom:18px;font-weight:600;
+  }
+  .crest::before,.crest::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold) 50%,transparent);max-width:60px}
+  h1{
+    font-family:'Georgia','Playfair Display',serif;
+    font-size:clamp(28px,5vw,44px);
+    font-weight:700;line-height:1.15;letter-spacing:-0.01em;
+    margin-bottom:14px;
+  }
+  h1 .accent{color:var(--gold-soft);font-style:italic;font-weight:400}
+  .subtitle{
+    font-size:clamp(14px,2.2vw,16px);
+    color:rgba(250,248,244,0.82);
+    font-style:italic;max-width:620px;line-height:1.55;
+  }
+  .meta-row{
+    margin-top:28px;display:flex;flex-wrap:wrap;gap:18px;
+    font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;
+    color:rgba(232,201,122,0.9);border-top:1px solid rgba(201,168,76,0.3);
+    padding-top:18px;
+  }
+  /* ==== LANG SWITCH ==== */
+  .lang-bar{
+    background:var(--ivory);
+    border-bottom:1px solid var(--line);
+    padding:14px 24px;
+    position:sticky;top:0;z-index:50;
+    box-shadow:0 1px 0 rgba(0,0,0,0.03);
+  }
+  .lang-inner{
+    max-width:880px;margin:0 auto;
+    display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;
+  }
+  .back-link{
+    color:var(--teal);font-size:13px;text-decoration:none;
+    display:inline-flex;align-items:center;gap:6px;font-weight:600;
+    transition:color 0.2s;
+  }
+  .back-link:hover{color:var(--gold)}
+  .lang-toggle{display:inline-flex;border:1px solid var(--teal);border-radius:999px;overflow:hidden}
+  .lang-toggle button{
+    background:transparent;border:none;color:var(--teal);
+    padding:7px 18px;font-size:12.5px;letter-spacing:0.1em;text-transform:uppercase;
+    cursor:pointer;font-family:inherit;font-weight:600;transition:all 0.2s;
+  }
+  .lang-toggle button.active{background:var(--teal);color:var(--cream)}
+  /* ==== TOC ==== */
+  .toc{
+    background:var(--paper);
+    border:1px solid var(--line);border-left:4px solid var(--gold);
+    border-radius:4px;
+    padding:20px 26px;
+    margin-bottom:36px;
+    box-shadow:var(--shadow);
+  }
+  .toc-title{
+    font-size:11.5px;letter-spacing:0.18em;text-transform:uppercase;
+    color:var(--gold);font-weight:700;margin-bottom:12px;
+  }
+  .toc ol{padding-left:22px;margin:0;font-size:14.5px}
+  .toc ol li{margin:5px 0;line-height:1.5}
+  .toc a{color:var(--teal);text-decoration:none;border-bottom:1px dotted transparent;transition:all 0.2s}
+  .toc a:hover{color:var(--gold);border-bottom-color:var(--gold)}
+  /* ==== MAIN ==== */
+  main{max-width:880px;margin:0 auto;padding:48px 24px 80px}
+  .lang-block{display:none}
+  .lang-block.active{display:block;animation:fadeIn 0.4s ease}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+  .lead{
+    font-size:17px;line-height:1.75;color:var(--ink-soft);
+    background:var(--paper);padding:22px 26px;
+    border-left:3px solid var(--gold);border-radius:2px;
+    margin-bottom:28px;font-style:italic;
+  }
+  h2{
+    font-family:'Georgia',serif;
+    font-size:clamp(20px,3vw,26px);
+    color:var(--teal-deep);font-weight:700;
+    margin:48px 0 18px;letter-spacing:-0.005em;
+    padding-bottom:10px;border-bottom:2px solid var(--gold);
+    display:flex;align-items:baseline;gap:14px;
+    scroll-margin-top:80px;
+  }
+  h2 .num{
+    font-size:13px;color:var(--gold);font-weight:700;
+    letter-spacing:0.15em;font-style:italic;
+    min-width:40px;
+  }
+  h3{
+    font-family:'Georgia',serif;
+    font-size:17px;color:var(--teal);font-weight:700;
+    margin:28px 0 10px;
+  }
+  p{margin-bottom:14px;color:var(--ink-soft)}
+  ul,ol{margin:14px 0 14px 24px;color:var(--ink-soft)}
+  ul li,ol li{margin-bottom:8px;line-height:1.65}
+  ul li strong,ol li strong{color:var(--teal-deep)}
+  /* ==== INFO BOXES ==== */
+  .contact-card{
+    background:linear-gradient(135deg,var(--teal-deep) 0%,var(--teal) 100%);
+    color:var(--cream);
+    padding:28px 32px;border-radius:6px;
+    margin:32px 0;
+    box-shadow:var(--shadow-card);
+    border-left:5px solid var(--gold);
+  }
+  .contact-card h3{color:var(--gold-soft);margin-top:0;font-size:18px}
+  .contact-card .contact-row{
+    display:flex;flex-wrap:wrap;gap:24px;margin-top:14px;
+  }
+  .contact-card .contact-item{flex:1;min-width:200px}
+  .contact-card .contact-item .label{
+    font-size:11px;letter-spacing:0.15em;text-transform:uppercase;
+    color:var(--gold-soft);font-weight:700;margin-bottom:4px;
+  }
+  .contact-card .contact-item .value{font-size:16px;color:var(--cream)}
+  .contact-card a{color:var(--gold-soft);text-decoration:none;border-bottom:1px dotted var(--gold)}
+  .contact-card a:hover{color:var(--cream)}
+  .data-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:16px;margin:20px 0;
+  }
+  .data-card{
+    background:var(--paper);padding:18px 22px;
+    border-radius:4px;border:1px solid var(--line);
+    box-shadow:var(--shadow);
+  }
+  .data-card h4{
+    font-size:11.5px;letter-spacing:0.15em;text-transform:uppercase;
+    color:var(--gold);font-weight:700;margin-bottom:10px;
+  }
+  .data-card ul{margin:0;padding-left:18px;font-size:14px}
+  .data-card ul li{margin-bottom:5px}
+  .rights-list{
+    background:var(--paper);
+    border:1px solid var(--line);border-radius:4px;
+    padding:24px 28px;margin:20px 0;
+  }
+  .rights-list .rights-head{
+    font-size:13px;letter-spacing:0.12em;text-transform:uppercase;
+    color:var(--gold);font-weight:700;margin-bottom:12px;
+  }
+  .rights-list ul{list-style:none;padding:0;margin:0}
+  .rights-list li{
+    padding:10px 0 10px 38px;position:relative;
+    border-bottom:1px dotted var(--line);
+    line-height:1.6;
+  }
+  .rights-list li:last-child{border-bottom:none}
+  .rights-list li::before{
+    content:attr(data-letter);
+    position:absolute;left:0;top:8px;
+    width:26px;height:26px;border-radius:50%;
+    background:var(--gold);color:var(--teal-deep);
+    display:flex;align-items:center;justify-content:center;
+    font-size:13px;font-weight:700;font-family:'Georgia',serif;
+  }
+  .info-callout{
+    background:#fdf6e0;
+    border:1px solid var(--gold);
+    border-left:5px solid var(--gold);
+    padding:18px 22px;border-radius:4px;
+    margin:20px 0;
+    font-size:14.5px;
+  }
+  .info-callout strong{color:var(--teal-deep)}
+  .updated-stamp{
+    margin-top:48px;padding-top:24px;border-top:1px solid var(--line);
+    text-align:center;font-size:13px;color:var(--muted);font-style:italic;
+  }
+  /* ==== FOOTER ==== */
+  footer{
+    background:var(--teal-deep);color:var(--cream);
+    padding:40px 24px;text-align:center;
+    border-top:4px solid var(--gold);
+  }
+  footer .footer-inner{max-width:880px;margin:0 auto}
+  footer p{color:rgba(250,248,244,0.7);font-size:13px;margin:6px 0}
+  footer a{color:var(--gold-soft);text-decoration:none;border-bottom:1px dotted var(--gold)}
+  footer a:hover{color:var(--gold)}
+  .footer-divider{
+    width:60px;height:2px;background:var(--gold);
+    margin:18px auto;
+  }
+  /* ==== RESPONSIVE ==== */
+  @media(max-width:600px){
+    .header{padding:32px 20px 40px}
+    main{padding:32px 18px 60px}
+    .lead{padding:18px 20px;font-size:15px}
+    h2{flex-direction:column;align-items:flex-start;gap:6px}
+    .contact-card{padding:22px 24px}
+  }
+  @media print{
+    .lang-bar,.toc{display:none}
+    body{background:white;color:black}
+    .header{background:white;color:black;border-bottom:2px solid black}
+    h1,h2,h3,.crest,h1 .accent{color:black}
+    .contact-card{background:white;color:black;border:1px solid #333}
+    .contact-card h3,.contact-card .contact-item .label,.contact-card .contact-item .value{color:black}
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <div class="crest">⚜ Suite Cuernavaca · Mundial 2026 ⚜</div>
+    <h1 data-lang="es" style="display:none">Aviso de <span class="accent">Privacidad</span></h1>
+    <h1 data-lang="en">Privacy <span class="accent">Notice</span></h1>
+    <p class="subtitle" data-lang="es" style="display:none">Tratamiento de datos personales conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (México) y normativa internacional aplicable.</p>
+    <p class="subtitle" data-lang="en">Personal data processing in compliance with Mexico's Federal Law on Protection of Personal Data Held by Private Parties and applicable international standards (incl. GDPR principles for EU/UK guests).</p>
+    <div class="meta-row">
+      <span data-lang="es" style="display:none">📅 Vigente desde mayo 2026</span>
+      <span data-lang="en">📅 Effective May 2026</span>
+      <span>·</span>
+      <span data-lang="es" style="display:none">🇲🇽 LFPDPPP · 🇪🇺 GDPR</span>
+      <span data-lang="en">🇲🇽 LFPDPPP · 🇪🇺 GDPR</span>
+    </div>
+  </div>
+</header>
+
+<!-- LANG SWITCH -->
+<div class="lang-bar">
+  <div class="lang-inner">
+    <a href="javascript:history.back()" class="back-link">
+      ← <span data-lang="es" style="display:none">Volver al sitio</span><span data-lang="en">Back to site</span>
+    </a>
+    <div class="lang-toggle" role="group" aria-label="Language toggle">
+      <button onclick="setLang('en')" class="active" id="btn-en">EN</button>
+      <button onclick="setLang('es')" id="btn-es">ES</button>
+    </div>
+  </div>
+</div>
+
+<main>
+
+<!-- ============ ENGLISH ============ -->
+<div class="lang-block active" data-lang-block="en">
+
+  <p class="lead">This Privacy Notice explains how <strong>The Host / Lessor</strong> ("we") collects, uses, protects and shares the personal data of guests reserving a stay at <strong>Suite Cuernavaca</strong> during the 2026 FIFA World Cup. Please read it carefully before submitting any reservation request.</p>
+
+  <div class="toc">
+    <div class="toc-title">📋 Contents</div>
+    <ol>
+      <li><a href="#en-controller">Data Controller</a></li>
+      <li><a href="#en-data">What Data We Collect</a></li>
+      <li><a href="#en-purposes">Purposes of Processing</a></li>
+      <li><a href="#en-legal">Legal Basis</a></li>
+      <li><a href="#en-sharing">Data Sharing & Transfers</a></li>
+      <li><a href="#en-retention">Data Retention</a></li>
+      <li><a href="#en-security">Security Measures</a></li>
+      <li><a href="#en-rights">Your ARCO Rights</a></li>
+      <li><a href="#en-cookies">Cookies & Analytics</a></li>
+      <li><a href="#en-minors">Minors</a></li>
+      <li><a href="#en-changes">Changes to this Notice</a></li>
+      <li><a href="#en-contact">Contact</a></li>
+    </ol>
+  </div>
+
+  <h2 id="en-controller"><span class="num">I.</span> Data Controller</h2>
+  <p>The party responsible for processing your personal data is:</p>
+
+  <div class="contact-card">
+    <h3>📍 Data Controller</h3>
+    <p style="color:rgba(250,248,244,0.95);margin-bottom:8px"><strong style="color:var(--cream)">The Host / Lessor</strong> — Owner of Suite Cuernavaca</p>
+    <div class="contact-row">
+      <div class="contact-item">
+        <div class="label">Email</div>
+        <div class="value"><a href="mailto:lgalvez@nielsen-consulting.com">lgalvez@nielsen-consulting.com</a></div>
+      </div>
+      <div class="contact-item">
+        <div class="label">WhatsApp (Chat only)</div>
+        <div class="value"><a href="https://wa.me/525545881648">+52 55 4588 1648</a></div>
+      </div>
+    </div>
+    <div style="margin-top:14px;padding-top:14px;border-top:1px solid rgba(232,201,122,0.3);font-size:13.5px">
+      <div class="label" style="margin-bottom:4px">Property address</div>
+      Calle 32 #100, Col. Ricardo Flores Magón, C.P. 62385, Cuernavaca, Morelos, México
+    </div>
+  </div>
+
+  <h2 id="en-data"><span class="num">II.</span> What Data We Collect</h2>
+  <p>To process your reservation and ensure a safe stay, we may collect:</p>
+
+  <div class="data-grid">
+    <div class="data-card">
+      <h4>Identification data</h4>
+      <ul>
+        <li>Full name</li>
+        <li>Nationality</li>
+        <li>Government-issued ID or passport (for check-in only)</li>
+      </ul>
+    </div>
+    <div class="data-card">
+      <h4>Contact data</h4>
+      <ul>
+        <li>Email address</li>
+        <li>Phone / WhatsApp number</li>
+        <li>Country of residence</li>
+      </ul>
+    </div>
+    <div class="data-card">
+      <h4>Reservation data</h4>
+      <ul>
+        <li>Check-in / check-out dates</li>
+        <li>Number of guests</li>
+        <li>Special requests</li>
+      </ul>
+    </div>
+    <div class="data-card">
+      <h4>Financial data</h4>
+      <ul>
+        <li>Bank transfer reference (we never store card numbers)</li>
+        <li>Receipts and invoices</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="info-callout">
+    <strong>We do NOT collect sensitive data</strong> such as racial or ethnic origin, religious beliefs, political opinions, sexual orientation, or health information.
+  </div>
+
+  <h2 id="en-purposes"><span class="num">III.</span> Purposes of Processing</h2>
+  <h3>Primary purposes (necessary for the service):</h3>
+  <ul>
+    <li><strong>Reservation management:</strong> confirming bookings, scheduling check-in/check-out, communicating logistical details.</li>
+    <li><strong>Identity verification:</strong> ID verification at check-in for security and legal compliance.</li>
+    <li><strong>Payment processing:</strong> issuing receipts, tracking deposits, refunding the security deposit.</li>
+    <li><strong>Compliance with the condominium administration:</strong> registering guest names with the front desk, in line with Las Palomas internal rules.</li>
+    <li><strong>Direct support:</strong> WhatsApp concierge, emergency contact during the stay.</li>
+  </ul>
+
+  <h3>Secondary purposes (optional, may be objected to):</h3>
+  <ul>
+    <li>Sending future promotional offers about the property.</li>
+    <li>Requesting feedback or testimonials after the stay.</li>
+  </ul>
+
+  <p style="font-size:14px;color:var(--muted);font-style:italic">You may object to secondary purposes at any time by writing to <a href="mailto:lgalvez@nielsen-consulting.com" style="color:var(--teal)">lgalvez@nielsen-consulting.com</a> with the subject line "Opt-out — Privacy Notice".</p>
+
+  <h2 id="en-legal"><span class="num">IV.</span> Legal Basis</h2>
+  <p>We process your personal data under the following legal bases:</p>
+  <ul>
+    <li><strong>Contractual necessity</strong> (Art. 10 LFPDPPP / Art. 6.1.b GDPR): processing is required to fulfill the reservation contract.</li>
+    <li><strong>Legal obligation</strong>: tax and accounting records, condominium guest registration.</li>
+    <li><strong>Legitimate interest</strong>: fraud prevention, security, internal records.</li>
+    <li><strong>Consent</strong> (for secondary purposes): you may withdraw consent at any time.</li>
+  </ul>
+
+  <h2 id="en-sharing"><span class="num">V.</span> Data Sharing & Transfers</h2>
+  <p>We <strong>do not sell, rent or commercialize</strong> your personal data. We may share limited information only with:</p>
+  <ul>
+    <li><strong>Las Palomas Condominium Administration:</strong> guest names and stay dates, as required by the internal regulations of the property.</li>
+    <li><strong>Banking institutions:</strong> for processing transfers and refunds (your bank handles its own data).</li>
+    <li><strong>Tax authorities (SAT)</strong>: only when legally required for invoicing.</li>
+    <li><strong>Hosting and email providers:</strong> Vercel (hosting of this site, USA) and Google/Gmail (email communications, USA). These providers process data on our behalf under their own privacy and security standards.</li>
+    <li><strong>Authorities</strong>: when required by a valid legal order.</li>
+  </ul>
+  <p>International transfers (e.g., to providers based in the USA) are protected under standard data protection clauses and applicable safeguards.</p>
+
+  <h2 id="en-retention"><span class="num">VI.</span> Data Retention</h2>
+  <ul>
+    <li><strong>Reservation and contact data:</strong> kept for up to 5 years after check-out, for legal, tax and warranty purposes.</li>
+    <li><strong>ID copies:</strong> reviewed at check-in only, NOT stored permanently — deleted within 30 days after check-out.</li>
+    <li><strong>Financial records:</strong> kept for 5 years (tax obligation).</li>
+    <li><strong>Marketing data</strong> (if consented): kept until you object or withdraw consent.</li>
+  </ul>
+
+  <h2 id="en-security"><span class="num">VII.</span> Security Measures</h2>
+  <p>We apply reasonable administrative, technical and physical measures to protect your data:</p>
+  <ul>
+    <li>Encrypted storage (Google Drive / Gmail with two-factor authentication).</li>
+    <li>Access limited to the Host / Lessor only.</li>
+    <li>No transmission of card numbers — payments via direct bank transfer or trusted gateways.</li>
+    <li>HTTPS for the website (TLS encryption).</li>
+    <li>Regular review of stored documents and timely deletion when no longer needed.</li>
+  </ul>
+
+  <h2 id="en-rights"><span class="num">VIII.</span> Your ARCO Rights</h2>
+  <p>Under Mexico's LFPDPPP (and equivalent rights under GDPR for EU/UK guests), you have the right to:</p>
+
+  <div class="rights-list">
+    <div class="rights-head">Your Rights · Derechos ARCO</div>
+    <ul>
+      <li data-letter="A"><strong>Access</strong> — know what personal data we hold about you and how it is processed.</li>
+      <li data-letter="R"><strong>Rectification</strong> — correct inaccurate or incomplete data.</li>
+      <li data-letter="C"><strong>Cancellation</strong> — request deletion of your data when no longer needed (subject to legal retention obligations).</li>
+      <li data-letter="O"><strong>Opposition</strong> — object to specific uses, including marketing.</li>
+      <li data-letter="+"><strong>Portability</strong> (GDPR) — receive your data in a structured, commonly used format.</li>
+      <li data-letter="+"><strong>Withdraw consent</strong> at any time, without affecting prior lawful processing.</li>
+    </ul>
+  </div>
+
+  <p>To exercise any of these rights, send a request to <a href="mailto:lgalvez@nielsen-consulting.com?subject=ARCO%20Rights%20Request" style="color:var(--teal);font-weight:700">lgalvez@nielsen-consulting.com</a> with the subject line <em>"ARCO Rights Request"</em>, including:</p>
+  <ul>
+    <li>Your full name and a copy of an official ID (only for verification — not stored after the request is processed).</li>
+    <li>The specific right you are exercising and any details (e.g., what data should be corrected or deleted).</li>
+    <li>An email or phone where you wish to receive a response.</li>
+  </ul>
+  <p>We will respond within <strong>20 business days</strong> as required by Mexican law. If you reside in the EU/UK, you may also lodge a complaint with your local data protection authority. In Mexico, you may file complaints with INAI (<a href="https://home.inai.org.mx" target="_blank" rel="noopener" style="color:var(--teal)">www.inai.org.mx</a>).</p>
+
+  <h2 id="en-cookies"><span class="num">IX.</span> Cookies & Analytics</h2>
+  <p>The Suite Cuernavaca website is a static page that <strong>does not use cookies, tracking pixels, advertising trackers, or analytics tools</strong>. The only third-party content embedded is:</p>
+  <ul>
+    <li><strong>Google Maps iframes</strong>, used to display routes from the property to tourist destinations and World Cup stadiums. These are loaded only when you click a destination card. Google may receive your IP address and basic browser data subject to its own privacy policy.</li>
+    <li><strong>WhatsApp / mailto links</strong>, which redirect to your own messaging app or email client when clicked.</li>
+  </ul>
+  <p>No data about your visit is sent back to us automatically.</p>
+
+  <h2 id="en-minors"><span class="num">X.</span> Minors</h2>
+  <p>The reservation must always be made by an adult (18+). Personal data of minors traveling as part of a family group is processed only as part of the head guest's reservation and is never used for marketing or shared with third parties beyond the strict purposes stated above.</p>
+
+  <h2 id="en-changes"><span class="num">XI.</span> Changes to this Notice</h2>
+  <p>We may update this notice to reflect legal, technical or operational changes. The current version is always available on this page, dated below. Material changes will be communicated by email to confirmed guests.</p>
+
+  <h2 id="en-contact"><span class="num">XII.</span> Contact</h2>
+  <p>For any questions about this Privacy Notice or to exercise your rights:</p>
+
+  <div class="contact-card">
+    <h3>📨 Get in Touch</h3>
+    <div class="contact-row">
+      <div class="contact-item">
+        <div class="label">Email (preferred)</div>
+        <div class="value"><a href="mailto:lgalvez@nielsen-consulting.com">lgalvez@nielsen-consulting.com</a></div>
+      </div>
+      <div class="contact-item">
+        <div class="label">WhatsApp</div>
+        <div class="value"><a href="https://wa.me/525545881648">+52 55 4588 1648</a></div>
+      </div>
+    </div>
+    <p style="margin-top:14px;font-size:13px;color:rgba(250,248,244,0.85)">Subject line: <em>"Privacy Notice — [your topic]"</em>. We respond within 1–2 business days; ARCO Rights requests within 20 business days.</p>
+  </div>
+
+  <div class="updated-stamp">Last updated: May 2026 · Version 1.0</div>
+
+</div>
+
+<!-- ============ SPANISH ============ -->
+<div class="lang-block" data-lang-block="es">
+
+  <p class="lead">El presente Aviso de Privacidad describe cómo <strong>El Arrendador</strong> ("nosotros") recaba, usa, protege y comparte los datos personales de los huéspedes que reservan una estancia en <strong>Suite Cuernavaca</strong> durante el Mundial FIFA 2026. Por favor léelo cuidadosamente antes de enviar cualquier solicitud de reservación.</p>
+
+  <div class="toc">
+    <div class="toc-title">📋 Contenido</div>
+    <ol>
+      <li><a href="#es-responsable">Responsable de los datos</a></li>
+      <li><a href="#es-datos">Datos que recabamos</a></li>
+      <li><a href="#es-finalidades">Finalidades del tratamiento</a></li>
+      <li><a href="#es-fundamento">Fundamento legal</a></li>
+      <li><a href="#es-transferencias">Transferencias y comunicaciones</a></li>
+      <li><a href="#es-conservacion">Plazos de conservación</a></li>
+      <li><a href="#es-seguridad">Medidas de seguridad</a></li>
+      <li><a href="#es-derechos">Tus derechos ARCO</a></li>
+      <li><a href="#es-cookies">Cookies y analítica</a></li>
+      <li><a href="#es-menores">Menores de edad</a></li>
+      <li><a href="#es-cambios">Cambios al aviso</a></li>
+      <li><a href="#es-contacto">Contacto</a></li>
+    </ol>
+  </div>
+
+  <h2 id="es-responsable"><span class="num">I.</span> Responsable de los datos</h2>
+  <p>El responsable del tratamiento de tus datos personales es:</p>
+
+  <div class="contact-card">
+    <h3>📍 Responsable</h3>
+    <p style="color:rgba(250,248,244,0.95);margin-bottom:8px"><strong style="color:var(--cream)">El Arrendador</strong> — Propietario de Suite Cuernavaca</p>
+    <div class="contact-row">
+      <div class="contact-item">
+        <div class="label">Correo electrónico</div>
+        <div class="value"><a href="mailto:lgalvez@nielsen-consulting.com">lgalvez@nielsen-consulting.com</a></div>
+      </div>
+      <div class="contact-item">
+        <div class="label">WhatsApp (Sólo chats)</div>
+        <div class="value"><a href="https://wa.me/525545881648">+52 55 4588 1648</a></div>
+      </div>
+    </div>
+    <div style="margin-top:14px;padding-top:14px;border-top:1px solid rgba(232,201,122,0.3);font-size:13.5px">
+      <div class="label" style="margin-bottom:4px">Domicilio del inmueble</div>
+      Calle 32 #100, Col. Ricardo Flores Magón, C.P. 62385, Cuernavaca, Morelos, México
+    </div>
+  </div>
+
+  <h2 id="es-datos"><span class="num">II.</span> Datos que recabamos</h2>
+  <p>Para procesar tu reservación y garantizar una estancia segura, podemos recabar:</p>
+
+  <div class="data-grid">
+    <div class="data-card">
+      <h4>Datos de identificación</h4>
+      <ul>
+        <li>Nombre completo</li>
+        <li>Nacionalidad</li>
+        <li>Identificación oficial o pasaporte (solo para check-in)</li>
+      </ul>
+    </div>
+    <div class="data-card">
+      <h4>Datos de contacto</h4>
+      <ul>
+        <li>Correo electrónico</li>
+        <li>Teléfono / WhatsApp</li>
+        <li>País de residencia</li>
+      </ul>
+    </div>
+    <div class="data-card">
+      <h4>Datos de la reservación</h4>
+      <ul>
+        <li>Fechas de check-in / check-out</li>
+        <li>Número de huéspedes</li>
+        <li>Solicitudes especiales</li>
+      </ul>
+    </div>
+    <div class="data-card">
+      <h4>Datos financieros</h4>
+      <ul>
+        <li>Referencia de transferencia bancaria (nunca almacenamos números de tarjeta)</li>
+        <li>Recibos y facturas</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="info-callout">
+    <strong>NO recabamos datos sensibles</strong> como origen racial o étnico, creencias religiosas, opiniones políticas, orientación sexual o información de salud.
+  </div>
+
+  <h2 id="es-finalidades"><span class="num">III.</span> Finalidades del tratamiento</h2>
+  <h3>Finalidades primarias (necesarias para el servicio):</h3>
+  <ul>
+    <li><strong>Gestión de la reservación:</strong> confirmación de la reserva, agenda de check-in/check-out, comunicación de detalles logísticos.</li>
+    <li><strong>Verificación de identidad:</strong> revisión de identificación al check-in por seguridad y cumplimiento legal.</li>
+    <li><strong>Procesamiento de pagos:</strong> emisión de recibos, control de depósitos, reembolso del depósito de seguridad.</li>
+    <li><strong>Cumplimiento con la administración del condominio:</strong> registro de nombres de huéspedes en conserjería, conforme al reglamento interno de Las Palomas.</li>
+    <li><strong>Atención directa:</strong> conserjería por WhatsApp, contacto de emergencia durante la estancia.</li>
+  </ul>
+
+  <h3>Finalidades secundarias (opcionales, puedes oponerte):</h3>
+  <ul>
+    <li>Envío de futuras ofertas promocionales sobre la propiedad.</li>
+    <li>Solicitud de comentarios o testimonios después de la estancia.</li>
+  </ul>
+
+  <p style="font-size:14px;color:var(--muted);font-style:italic">Puedes oponerte a las finalidades secundarias en cualquier momento escribiendo a <a href="mailto:lgalvez@nielsen-consulting.com" style="color:var(--teal)">lgalvez@nielsen-consulting.com</a> con el asunto "Oposición — Aviso de Privacidad".</p>
+
+  <h2 id="es-fundamento"><span class="num">IV.</span> Fundamento legal</h2>
+  <p>Tratamos tus datos personales con base en los siguientes fundamentos:</p>
+  <ul>
+    <li><strong>Necesidad contractual</strong> (Art. 10 LFPDPPP): el tratamiento es necesario para cumplir con el contrato de reservación.</li>
+    <li><strong>Obligación legal</strong>: registros fiscales y contables, registro de huéspedes ante la administración del condominio.</li>
+    <li><strong>Interés legítimo</strong>: prevención de fraude, seguridad y registros internos.</li>
+    <li><strong>Consentimiento</strong> (para finalidades secundarias): puedes retirarlo en cualquier momento.</li>
+  </ul>
+
+  <h2 id="es-transferencias"><span class="num">V.</span> Transferencias y comunicaciones</h2>
+  <p><strong>No vendemos, rentamos ni comercializamos</strong> tus datos personales. Solo compartimos información limitada con:</p>
+  <ul>
+    <li><strong>Administración del Condominio Las Palomas:</strong> nombres de huéspedes y fechas de estancia, conforme al reglamento interno del inmueble.</li>
+    <li><strong>Instituciones bancarias:</strong> para procesar transferencias y reembolsos (tu banco maneja sus propios datos).</li>
+    <li><strong>Autoridades fiscales (SAT):</strong> únicamente cuando sea requerido por ley para facturación.</li>
+    <li><strong>Proveedores de hosting y correo:</strong> Vercel (hosting del sitio, EE.UU.) y Google/Gmail (comunicaciones por correo, EE.UU.). Estos proveedores procesan datos por nuestra cuenta bajo sus propios estándares de privacidad y seguridad.</li>
+    <li><strong>Autoridades:</strong> cuando sea requerido por orden legal válida.</li>
+  </ul>
+  <p>Las transferencias internacionales (por ejemplo, a proveedores ubicados en EE.UU.) están protegidas mediante cláusulas estándar de protección de datos y salvaguardas aplicables.</p>
+
+  <h2 id="es-conservacion"><span class="num">VI.</span> Plazos de conservación</h2>
+  <ul>
+    <li><strong>Datos de reservación y contacto:</strong> hasta 5 años después del check-out, por motivos legales, fiscales y de garantía.</li>
+    <li><strong>Copias de identificación:</strong> revisadas únicamente en el check-in, NO se almacenan permanentemente — se eliminan dentro de los 30 días posteriores al check-out.</li>
+    <li><strong>Registros financieros:</strong> 5 años (obligación fiscal).</li>
+    <li><strong>Datos de marketing</strong> (si diste consentimiento): hasta que te opongas o retires el consentimiento.</li>
+  </ul>
+
+  <h2 id="es-seguridad"><span class="num">VII.</span> Medidas de seguridad</h2>
+  <p>Aplicamos medidas administrativas, técnicas y físicas razonables para proteger tus datos:</p>
+  <ul>
+    <li>Almacenamiento cifrado (Google Drive / Gmail con autenticación de dos factores).</li>
+    <li>Acceso limitado únicamente al Arrendador.</li>
+    <li>Sin transmisión de números de tarjeta — pagos por transferencia bancaria directa o pasarelas confiables.</li>
+    <li>HTTPS en el sitio web (cifrado TLS).</li>
+    <li>Revisión periódica de los documentos almacenados y eliminación oportuna cuando ya no son necesarios.</li>
+  </ul>
+
+  <h2 id="es-derechos"><span class="num">VIII.</span> Tus derechos ARCO</h2>
+  <p>Conforme a la LFPDPPP de México (y derechos equivalentes bajo GDPR para huéspedes de la UE/Reino Unido), tienes derecho a:</p>
+
+  <div class="rights-list">
+    <div class="rights-head">Tus derechos · ARCO Rights</div>
+    <ul>
+      <li data-letter="A"><strong>Acceso</strong> — conocer qué datos personales tenemos sobre ti y cómo los tratamos.</li>
+      <li data-letter="R"><strong>Rectificación</strong> — corregir datos inexactos o incompletos.</li>
+      <li data-letter="C"><strong>Cancelación</strong> — solicitar la eliminación de tus datos cuando ya no sean necesarios (sujeto a obligaciones legales de conservación).</li>
+      <li data-letter="O"><strong>Oposición</strong> — oponerte a usos específicos, incluyendo marketing.</li>
+      <li data-letter="+"><strong>Portabilidad</strong> (GDPR) — recibir tus datos en formato estructurado y de uso común.</li>
+      <li data-letter="+"><strong>Retirar consentimiento</strong> en cualquier momento, sin afectar tratamientos lícitos previos.</li>
+    </ul>
+  </div>
+
+  <p>Para ejercer cualquiera de estos derechos, envía una solicitud a <a href="mailto:lgalvez@nielsen-consulting.com?subject=Solicitud%20Derechos%20ARCO" style="color:var(--teal);font-weight:700">lgalvez@nielsen-consulting.com</a> con el asunto <em>"Solicitud Derechos ARCO"</em>, incluyendo:</p>
+  <ul>
+    <li>Tu nombre completo y copia de identificación oficial (solo para verificación — no se almacena tras procesar la solicitud).</li>
+    <li>El derecho específico que ejerces y los detalles correspondientes (ej. qué datos corregir o eliminar).</li>
+    <li>Correo o teléfono donde deseas recibir respuesta.</li>
+  </ul>
+  <p>Responderemos dentro de <strong>20 días hábiles</strong> conforme a la legislación mexicana. Si resides en la UE/Reino Unido, también puedes presentar una queja ante tu autoridad local de protección de datos. En México puedes acudir al INAI (<a href="https://home.inai.org.mx" target="_blank" rel="noopener" style="color:var(--teal)">www.inai.org.mx</a>).</p>
+
+  <h2 id="es-cookies"><span class="num">IX.</span> Cookies y analítica</h2>
+  <p>El sitio web de Suite Cuernavaca es una página estática que <strong>no utiliza cookies, píxeles de rastreo, rastreadores publicitarios ni herramientas de analítica</strong>. Los únicos contenidos de terceros incrustados son:</p>
+  <ul>
+    <li><strong>Iframes de Google Maps</strong>, usados para mostrar rutas desde la propiedad hacia destinos turísticos y estadios del Mundial. Solo se cargan cuando haces click en una tarjeta de destino. Google puede recibir tu dirección IP y datos básicos del navegador conforme a su propia política de privacidad.</li>
+    <li><strong>Enlaces WhatsApp / mailto</strong>, que redirigen a tu propia app de mensajería o cliente de correo cuando los presionas.</li>
+  </ul>
+  <p>No recibimos automáticamente datos sobre tu visita.</p>
+
+  <h2 id="es-menores"><span class="num">X.</span> Menores de edad</h2>
+  <p>La reservación siempre debe realizarse por una persona mayor de edad (18+). Los datos personales de menores que viajen como parte de un grupo familiar se procesan únicamente como parte de la reservación del huésped titular y nunca se utilizan para marketing ni se comparten con terceros más allá de las finalidades estrictamente declaradas arriba.</p>
+
+  <h2 id="es-cambios"><span class="num">XI.</span> Cambios al aviso</h2>
+  <p>Podemos actualizar este aviso para reflejar cambios legales, técnicos u operativos. La versión vigente siempre estará disponible en esta página, fechada al pie. Los cambios materiales se comunicarán por correo electrónico a los huéspedes confirmados.</p>
+
+  <h2 id="es-contacto"><span class="num">XII.</span> Contacto</h2>
+  <p>Para cualquier duda sobre este Aviso de Privacidad o para ejercer tus derechos:</p>
+
+  <div class="contact-card">
+    <h3>📨 Contáctanos</h3>
+    <div class="contact-row">
+      <div class="contact-item">
+        <div class="label">Correo (preferido)</div>
+        <div class="value"><a href="mailto:lgalvez@nielsen-consulting.com">lgalvez@nielsen-consulting.com</a></div>
+      </div>
+      <div class="contact-item">
+        <div class="label">WhatsApp</div>
+        <div class="value"><a href="https://wa.me/525545881648">+52 55 4588 1648</a></div>
+      </div>
+    </div>
+    <p style="margin-top:14px;font-size:13px;color:rgba(250,248,244,0.85)">Asunto: <em>"Aviso de Privacidad — [tu tema]"</em>. Respondemos en 1–2 días hábiles; las solicitudes ARCO en 20 días hábiles.</p>
+  </div>
+
+  <div class="updated-stamp">Última actualización: Mayo 2026 · Versión 1.0</div>
+
+</div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <p data-lang="es" style="display:none">Aviso de Privacidad conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (México).</p>
+    <p data-lang="en">Privacy Notice in compliance with Mexico's Federal Law on Protection of Personal Data Held by Private Parties (LFPDPPP).</p>
+    <div class="footer-divider"></div>
+    <p data-lang="es" style="display:none">¿Dudas? Escribe a <a href="mailto:lgalvez@nielsen-consulting.com">lgalvez@nielsen-consulting.com</a> · WhatsApp <a href="https://wa.me/525545881648">+52 55 4588 1648</a> <span style="opacity:0.75;font-size:12px;font-style:italic;">(sólo chats · no atendemos llamadas)</span></p>
+    <p data-lang="en">Questions? Write to <a href="mailto:lgalvez@nielsen-consulting.com">lgalvez@nielsen-consulting.com</a> · WhatsApp <a href="https://wa.me/525545881648">+52 55 4588 1648</a> <span style="opacity:0.75;font-size:12px;font-style:italic;">(chat only · no calls accepted)</span></p>
+    <p style="margin-top:18px;font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(232,201,122,0.7)">⚜ Suite Cuernavaca · World Cup 2026 ⚜</p>
+  </div>
+</footer>
+
+<script>
+  function setLang(lang){
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-lang]').forEach(el => {
+      el.style.display = el.getAttribute('data-lang') === lang ? '' : 'none';
+    });
+    document.querySelectorAll('[data-lang-block]').forEach(el => {
+      el.classList.toggle('active', el.getAttribute('data-lang-block') === lang);
+    });
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+    try{ localStorage.setItem('lang', lang); }catch(e){}
+  }
+  (function(){
+    var saved = null;
+    try{ saved = localStorage.getItem('lang'); }catch(e){}
+    var hash = location.hash.replace('#','');
+    if(hash === 'es' || hash === 'en') setLang(hash);
+    else if(saved === 'es' || saved === 'en') setLang(saved);
+    else {
+      var browser = (navigator.language || 'en').toLowerCase();
+      setLang(browser.startsWith('es') ? 'es' : 'en');
+    }
+  })();
+</script>
+
+</body>
+</html>

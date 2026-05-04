@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reglamento del Condominio · Condominium Rules · Las Palomas</title>
+<meta name="description" content="Reglamento de convivencia del Condominio Las Palomas (Cuernavaca) aplicable a huéspedes durante el Mundial 2026.">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --teal-deep:#0e2a30; --teal:#1a4a52; --teal-mid:#2a6b74; --teal-light:#3a8a95;
+    --gold:#c9a84c; --gold-soft:#e8c97a;
+    --cream:#faf8f4; --paper:#faf5ee; --ivory:#f5f0e8;
+    --ink:#1a1a2e; --ink-soft:#2d2d2d; --muted:#6b6b6b;
+    --line:rgba(26,74,82,0.18);
+    --shadow:0 2px 24px rgba(14,42,48,0.08);
+    --shadow-card:0 4px 32px rgba(14,42,48,0.12);
+  }
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Georgia','Times New Roman',serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.7;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+  /* ==== HEADER ==== */
+  .header{
+    background:linear-gradient(135deg,var(--teal-deep) 0%,var(--teal) 60%,var(--teal-mid) 100%);
+    color:var(--cream);
+    padding:48px 24px 56px;
+    position:relative;
+    overflow:hidden;
+    border-bottom:4px solid var(--gold);
+  }
+  .header::before{
+    content:"";
+    position:absolute;inset:0;
+    background-image:radial-gradient(circle at 15% 30%,rgba(201,168,76,0.12) 0%,transparent 40%),
+                     radial-gradient(circle at 85% 70%,rgba(58,138,149,0.18) 0%,transparent 50%);
+    pointer-events:none;
+  }
+  .header-inner{max-width:880px;margin:0 auto;position:relative;z-index:1}
+  .crest{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:'Georgia',serif;font-size:13px;letter-spacing:0.18em;text-transform:uppercase;
+    color:var(--gold-soft);margin-bottom:18px;font-weight:600;
+  }
+  .crest::before,.crest::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold) 50%,transparent);max-width:60px}
+  h1{
+    font-family:'Georgia','Playfair Display',serif;
+    font-size:clamp(28px,5vw,44px);
+    font-weight:700;line-height:1.15;letter-spacing:-0.01em;
+    margin-bottom:14px;
+  }
+  h1 .accent{color:var(--gold-soft);font-style:italic;font-weight:400}
+  .subtitle{
+    font-size:clamp(14px,2.2vw,16px);
+    color:rgba(250,248,244,0.82);
+    font-style:italic;max-width:620px;line-height:1.55;
+  }
+  .meta-row{
+    margin-top:28px;display:flex;flex-wrap:wrap;gap:18px;
+    font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;
+    color:rgba(232,201,122,0.9);border-top:1px solid rgba(201,168,76,0.3);
+    padding-top:18px;
+  }
+  /* ==== LANG SWITCH ==== */
+  .lang-bar{
+    background:var(--ivory);
+    border-bottom:1px solid var(--line);
+    padding:14px 24px;
+    position:sticky;top:0;z-index:50;
+    box-shadow:0 1px 0 rgba(0,0,0,0.03);
+  }
+  .lang-inner{
+    max-width:880px;margin:0 auto;
+    display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;
+  }
+  .back-link{
+    color:var(--teal);font-size:13px;text-decoration:none;
+    display:inline-flex;align-items:center;gap:6px;font-weight:600;
+    transition:color 0.2s;
+  }
+  .back-link:hover{color:var(--gold)}
+  .lang-toggle{display:inline-flex;border:1px solid var(--teal);border-radius:999px;overflow:hidden}
+  .lang-toggle button{
+    background:transparent;border:none;color:var(--teal);
+    padding:7px 18px;font-size:12.5px;letter-spacing:0.1em;text-transform:uppercase;
+    cursor:pointer;font-family:inherit;font-weight:600;transition:all 0.2s;
+  }
+  .lang-toggle button.active{background:var(--teal);color:var(--cream)}
+  /* ==== MAIN ==== */
+  main{max-width:880px;margin:0 auto;padding:48px 24px 80px}
+  .lang-block{display:none}
+  .lang-block.active{display:block;animation:fadeIn 0.4s ease}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+  .lead{
+    font-size:17px;line-height:1.75;color:var(--ink-soft);
+    background:var(--paper);padding:22px 26px;
+    border-left:3px solid var(--gold);border-radius:2px;
+    margin-bottom:36px;font-style:italic;
+  }
+  h2{
+    font-family:'Georgia',serif;
+    font-size:clamp(20px,3vw,26px);
+    color:var(--teal-deep);font-weight:700;
+    margin:48px 0 18px;letter-spacing:-0.005em;
+    padding-bottom:10px;border-bottom:2px solid var(--gold);
+    display:flex;align-items:baseline;gap:14px;
+  }
+  h2 .num{
+    font-size:13px;color:var(--gold);font-weight:700;
+    letter-spacing:0.15em;font-style:italic;
+    min-width:40px;
+  }
+  h3{
+    font-family:'Georgia',serif;
+    font-size:17px;color:var(--teal);font-weight:700;
+    margin:28px 0 10px;
+  }
+  p{margin-bottom:14px;color:var(--ink-soft)}
+  .rules-list{list-style:none;padding:0;margin:18px 0}
+  .rules-list li{
+    position:relative;padding:12px 0 12px 44px;
+    border-bottom:1px dotted var(--line);
+    line-height:1.6;
+    transition:background 0.2s;
+  }
+  .rules-list li:last-child{border-bottom:none}
+  .rules-list li:hover{background:rgba(201,168,76,0.04)}
+  .rules-list li::before{
+    content:counter(rule);counter-increment:rule;
+    position:absolute;left:0;top:12px;
+    width:30px;height:30px;border-radius:50%;
+    background:var(--teal);color:var(--cream);
+    display:flex;align-items:center;justify-content:center;
+    font-size:13px;font-weight:700;font-family:'Georgia',serif;
+  }
+  .rules-list{counter-reset:rule}
+  .highlight-box{
+    background:linear-gradient(135deg,#fdf6e0 0%,#faf0c8 100%);
+    border:1px solid var(--gold);
+    border-left:5px solid var(--gold);
+    padding:20px 24px;border-radius:4px;
+    margin:24px 0;
+    box-shadow:var(--shadow);
+  }
+  .highlight-box strong{color:var(--teal-deep)}
+  .danger-box{
+    background:#fef5f0;
+    border:1px solid #d4856b;border-left:5px solid #b85a28;
+    padding:20px 24px;border-radius:4px;
+    margin:24px 0;
+  }
+  .danger-box strong{color:#a04020}
+  .danger-box .icon{font-size:20px;margin-right:6px}
+  .info-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:16px;margin:24px 0;
+  }
+  .info-card{
+    background:var(--paper);padding:18px 20px;
+    border-radius:4px;border:1px solid var(--line);
+    box-shadow:var(--shadow);
+  }
+  .info-card h4{
+    font-size:11.5px;letter-spacing:0.15em;text-transform:uppercase;
+    color:var(--gold);font-weight:700;margin-bottom:8px;
+  }
+  .info-card .value{
+    font-size:18px;color:var(--teal-deep);font-weight:700;
+    font-family:'Georgia',serif;
+  }
+  .info-card .desc{font-size:13px;color:var(--muted);margin-top:4px;line-height:1.5}
+  .schedule-strip{
+    display:flex;align-items:center;gap:14px;
+    background:var(--teal-deep);color:var(--cream);
+    padding:18px 24px;border-radius:4px;
+    margin:24px 0;
+    border-left:4px solid var(--gold);
+  }
+  .schedule-strip .clock{font-size:32px;line-height:1}
+  .schedule-strip .label{font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold-soft);font-weight:600}
+  .schedule-strip .time{font-size:22px;font-weight:700;font-family:'Georgia',serif;margin-top:2px}
+  /* ==== FOOTER ==== */
+  footer{
+    background:var(--teal-deep);color:var(--cream);
+    padding:40px 24px;text-align:center;
+    border-top:4px solid var(--gold);
+  }
+  footer .footer-inner{max-width:880px;margin:0 auto}
+  footer p{color:rgba(250,248,244,0.7);font-size:13px;margin:6px 0}
+  footer a{color:var(--gold-soft);text-decoration:none;border-bottom:1px dotted var(--gold)}
+  footer a:hover{color:var(--gold)}
+  .footer-divider{
+    width:60px;height:2px;background:var(--gold);
+    margin:18px auto;
+  }
+  /* ==== RESPONSIVE ==== */
+  @media(max-width:600px){
+    .header{padding:32px 20px 40px}
+    main{padding:32px 18px 60px}
+    .lead{padding:18px 20px;font-size:15px}
+    .rules-list li{padding-left:40px;font-size:14.5px}
+    h2{flex-direction:column;align-items:flex-start;gap:6px}
+  }
+  @media print{
+    .lang-bar,footer .back-link{display:none}
+    body{background:white;color:black}
+    .header{background:white;color:black;border-bottom:2px solid black}
+    h1,h2,h3,.crest,h1 .accent{color:black}
+    .highlight-box,.danger-box,.info-card,.schedule-strip,.lead{
+      box-shadow:none;background:white;border:1px solid #ccc;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <div class="crest">⚜ Las Palomas · Cuernavaca ⚜</div>
+    <h1 data-lang="es" style="display:none">Reglamento del <span class="accent">Condominio</span></h1>
+    <h1 data-lang="en">Condominium <span class="accent">Rules</span></h1>
+    <p class="subtitle" data-lang="es" style="display:none">Disposiciones de observancia obligatoria para huéspedes durante el Mundial 2026 — basadas en el reglamento interno oficial de Residencial Las Palomas-Tulipanes (Calle 32 No. 100, Col. Flores Magón, Cuernavaca, Morelos).</p>
+    <p class="subtitle" data-lang="en">Mandatory provisions for guests during the 2026 World Cup — based on the official internal regulations of Residencial Las Palomas-Tulipanes (Calle 32 No. 100, Col. Flores Magón, Cuernavaca, Morelos).</p>
+    <div class="meta-row">
+      <span data-lang="es" style="display:none">📜 Original: Febrero 2008 · Vigente</span>
+      <span data-lang="en">📜 Original: February 2008 · In force</span>
+      <span>·</span>
+      <span data-lang="es" style="display:none">🏛 Ley sobre el Régimen de Condominio del Estado de Morelos</span>
+      <span data-lang="en">🏛 Morelos State Condominium Law</span>
+    </div>
+  </div>
+</header>
+
+<!-- LANG SWITCH -->
+<div class="lang-bar">
+  <div class="lang-inner">
+    <a href="javascript:history.back()" class="back-link">
+      ← <span data-lang="es" style="display:none">Volver al sitio</span><span data-lang="en">Back to site</span>
+    </a>
+    <div class="lang-toggle" role="group" aria-label="Language toggle">
+      <button onclick="setLang('en')" class="active" id="btn-en">EN</button>
+      <button onclick="setLang('es')" id="btn-es">ES</button>
+    </div>
+  </div>
+</div>
+
+<main>
+
+<!-- ============ ENGLISH ============ -->
+<div class="lang-block active" data-lang-block="en">
+
+  <p class="lead">Welcome to <strong>Residencial Las Palomas-Tulipanes</strong>. To ensure peaceful coexistence and the conservation of the property, all guests must observe the following rules during their stay. These rules apply equally to the host, guests, and visitors.</p>
+
+  <h2><span class="num">I.</span> General Provisions</h2>
+  <p>The condominium is divided into two sections, each with its own pool, palapa (covered terrace) and common areas. Guests must respect the section corresponding to their assigned unit. Any improper use will be reported to the front desk (<em>conserjería</em>).</p>
+
+  <div class="info-grid">
+    <div class="info-card">
+      <h4>Address</h4>
+      <div class="value">Calle 32 #100</div>
+      <div class="desc">Col. Flores Magón, Cuernavaca, Morelos</div>
+    </div>
+    <div class="info-card">
+      <h4>Speed Limit</h4>
+      <div class="value">10 km/h</div>
+      <div class="desc">Maximum speed inside the complex</div>
+    </div>
+    <div class="info-card">
+      <h4>Parking</h4>
+      <div class="value">1 space per unit</div>
+      <div class="desc">No visitor parking — outside vehicles must remain off-property</div>
+    </div>
+  </div>
+
+  <h2><span class="num">II.</span> Pool & Common Area Rules</h2>
+
+  <div class="schedule-strip">
+    <div class="clock">🕗</div>
+    <div>
+      <div class="label">Pool & palapa hours</div>
+      <div class="time">07:00 – 22:00</div>
+    </div>
+  </div>
+
+  <ul class="rules-list">
+    <li><strong>Smoking, food and drinks are prohibited</strong> in the pool and its perimeter, as well as glass items (bottles, ashtrays, cups).</li>
+    <li><strong>Camping or staying overnight</strong> in common areas is forbidden.</li>
+    <li><strong>Shower before entering the pool.</strong> Wear swimwear only — no jeans, t-shirts, or cotton clothing.</li>
+    <li><strong>Pool use is at your own risk.</strong> Children must be supervised by an adult at all times. Babies must wear swim diapers and have them changed approximately every 30 minutes.</li>
+    <li><strong>If using sunscreen or tanning products, wait 45 minutes</strong> before entering the pool.</li>
+    <li><strong>No bodily functions or animals</strong> in the pool or common areas.</li>
+    <li>Use of the pool is forbidden if you have a contagious illness (rubella, chickenpox, etc.) or are intoxicated.</li>
+    <li><strong>No ball games</strong> or activities that compromise safety in the pool, common areas, or parking lots. Large inflatables are also prohibited.</li>
+    <li>Use of stereos or speakers in common areas is permitted only at <strong>moderate volume between 10:00 and 22:00</strong>.</li>
+    <li><strong>No charcoal, gas or electric grills inside the palapa.</strong> If using one, it must be at a safe distance to prevent accidents.</li>
+    <li>After using the palapa or common areas, <strong>leave the space clean</strong> and dispose of trash in the containers near the entrance gate (preferably in heavy black bags, well sealed).</li>
+    <li><strong>Maintain decorum and good manners</strong> when using the pool and common spaces.</li>
+  </ul>
+
+  <h2><span class="num">III.</span> Host & Guest Responsibility</h2>
+
+  <div class="highlight-box">
+    <p><strong>📌 Article 15 (key for guests):</strong> The owner / host is fully responsible for visitors and guests. Guests must be informed of these rules and the host is the sole party responsible for any damage or accident caused by them, releasing the administration, condominium committee and neighbors of any liability.</p>
+  </div>
+
+  <ul class="rules-list">
+    <li><strong>No common area</strong> — lobby, hallways, stairs — may be reserved for exclusive use, nor altered with planters, decorations or furniture that affect the look of the building.</li>
+    <li><strong>Pets are not allowed</strong> in apartments or common areas. This includes visitors' pets.</li>
+    <li><strong>Do not hang clothes or any item</strong> from windows, balconies or railings.</li>
+    <li>To clean balconies or terraces, use only a damp cloth — avoid spilling water onto units below or common areas.</li>
+    <li>Do not leave bicycles, toys or objects scattered in common areas, parking spaces, walkways or floors in general.</li>
+    <li>Use of bicycles, scooters and roller skates is at the user's own risk.</li>
+  </ul>
+
+  <h2><span class="num">IV.</span> Vehicles & Parking</h2>
+  <ul class="rules-list">
+    <li><strong>Maximum speed:</strong> 10 km/h within the entire complex.</li>
+    <li>Each apartment has <strong>one assigned parking space only</strong>. There is no parking for visitors — any external vehicle must remain outside the gate.</li>
+    <li><strong>Do not stay inside parked vehicles.</strong> Park facing your assigned space.</li>
+  </ul>
+
+  <h2><span class="num">V.</span> Move-in / Move-out</h2>
+  <p>Any move-in or move-out must be coordinated <strong>in advance with the administration</strong>. A liability letter and security deposit are required. For short-term stays during the World Cup, the Host / Lessor will coordinate this directly with the administration.</p>
+
+  <h2><span class="num">VI.</span> Enforcement</h2>
+  <div class="danger-box">
+    <p><span class="icon">⚠️</span> Any violation of this regulation will be observed and, where applicable, corrected by the front desk personnel, the administration, or, if necessary, the competent authorities. The host (owner) bears full financial and legal responsibility for damages caused by guests.</p>
+  </div>
+
+  <p style="margin-top:24px;font-size:14px;color:var(--muted);font-style:italic">For preventive or corrective attention regarding this regulation, please reach out to the front desk (<em>conserjería</em>) — they are available 24/7 to ensure smooth coexistence.</p>
+
+</div>
+
+<!-- ============ SPANISH ============ -->
+<div class="lang-block" data-lang-block="es">
+
+  <p class="lead">Bienvenido a <strong>Residencial Las Palomas-Tulipanes</strong>. Para garantizar la sana convivencia y la conservación del inmueble, todos los huéspedes deben observar las siguientes reglas durante su estancia. Estas disposiciones aplican por igual al anfitrión, sus huéspedes y visitantes.</p>
+
+  <h2><span class="num">I.</span> Disposiciones Generales</h2>
+  <p>El condominio está dividido en dos secciones, cada una con su propia alberca, palapa y áreas comunes. Los huéspedes deben respetar la sección correspondiente a su unidad asignada. Cualquier uso indebido será reportado a conserjería.</p>
+
+  <div class="info-grid">
+    <div class="info-card">
+      <h4>Dirección</h4>
+      <div class="value">Calle 32 #100</div>
+      <div class="desc">Col. Flores Magón, Cuernavaca, Morelos</div>
+    </div>
+    <div class="info-card">
+      <h4>Velocidad máxima</h4>
+      <div class="value">10 km/h</div>
+      <div class="desc">Dentro del condominio</div>
+    </div>
+    <div class="info-card">
+      <h4>Estacionamiento</h4>
+      <div class="value">1 cajón por unidad</div>
+      <div class="desc">Sin espacio para visitas — vehículos ajenos deben permanecer fuera del condominio</div>
+    </div>
+  </div>
+
+  <h2><span class="num">II.</span> Reglamento de Alberca y Áreas Comunes</h2>
+
+  <div class="schedule-strip">
+    <div class="clock">🕗</div>
+    <div>
+      <div class="label">Horario de alberca y palapa</div>
+      <div class="time">07:00 – 22:00</div>
+    </div>
+  </div>
+
+  <ul class="rules-list">
+    <li><strong>Prohibido fumar, ingerir alimentos y bebidas</strong>, así como artículos de cristal (envases, botellas, ceniceros, vasos) en la alberca y su andador.</li>
+    <li><strong>Prohibido acampar o pernoctar</strong> en las áreas comunes.</li>
+    <li><strong>Bañarse antes de entrar a la alberca.</strong> Usar traje de baño únicamente — no mezclilla, no camisetas, no ropa de algodón.</li>
+    <li><strong>El uso de la alberca es bajo su responsabilidad.</strong> Los niños deben estar supervisados por adultos en todo momento. Los bebés deben usar pañal para nadar y cambiarlo aproximadamente cada 30 minutos.</li>
+    <li><strong>Al usar bronceador, esperar 45 minutos</strong> antes de entrar a la alberca.</li>
+    <li><strong>Prohibido realizar necesidades fisiológicas o introducir animales</strong> en alberca y áreas comunes.</li>
+    <li>Prohibido el uso de la alberca a quien padezca alguna enfermedad contagiosa (rubeola, varicela, etc.) o se encuentre en estado de ebriedad.</li>
+    <li><strong>No se permiten juegos con pelota</strong> u otros que atenten contra la seguridad o integridad física en alberca, áreas comunes y estacionamientos. Asimismo, se prohíben inflables de grandes dimensiones.</li>
+    <li>El uso de grabadoras o estéreos en áreas comunes debe ser con <strong>volumen moderado, en horario de 10:00 a 22:00</strong>.</li>
+    <li><strong>Prohibido encender anafres, parrillas de carbón, eléctricas o de gas dentro de la palapa.</strong> Si se usan, debe ser a una distancia suficiente para evitar percances.</li>
+    <li>Al terminar de usar la palapa o áreas comunes, <strong>dejar el espacio limpio</strong> y depositar la basura en los contenedores junto a la caseta de entrada (preferentemente en bolsa negra gruesa bien cerrada).</li>
+    <li><strong>Cuidar la moral y las buenas costumbres</strong> al hacer uso de la alberca y áreas comunes.</li>
+  </ul>
+
+  <h2><span class="num">III.</span> Responsabilidad del Anfitrión y Huéspedes</h2>
+
+  <div class="highlight-box">
+    <p><strong>📌 Artículo 15 (clave para huéspedes):</strong> El propietario / anfitrión es el responsable único de sus visitantes e invitados. Debe hacerles del conocimiento el presente reglamento y será el responsable del pago de cualquier daño o accidente que ocasionen, liberando de toda responsabilidad a la administración, comité y vecinos.</p>
+  </div>
+
+  <ul class="rules-list">
+    <li><strong>Ningún área común</strong> — lobby, pasillos, escaleras — puede ser reservada para uso exclusivo, ni alterada con macetas, adornos o muebles que afecten la imagen del edificio.</li>
+    <li><strong>No se permiten animales</strong> en los departamentos ni en áreas comunes, incluyendo a los de visitantes.</li>
+    <li><strong>No se podrá tender o colgar ropa</strong> u otros artículos en ventanas, balcones o barandales.</li>
+    <li>Para limpiar balcones o terrazas, usar únicamente un trapo húmedo — evitar derramar agua a pisos inferiores o áreas comunes.</li>
+    <li>No dejar bicicletas, juguetes u objetos tirados en áreas comunes, estacionamientos, andadores o pisos en general.</li>
+    <li>El uso de bicicletas, patinetas o patines es bajo responsabilidad y riesgo del usuario.</li>
+  </ul>
+
+  <h2><span class="num">IV.</span> Vehículos y Estacionamiento</h2>
+  <ul class="rules-list">
+    <li><strong>Velocidad máxima:</strong> 10 km/h dentro de todo el condominio.</li>
+    <li>Cada departamento cuenta con <strong>un solo cajón asignado</strong>. No hay estacionamiento para visitantes — todo vehículo ajeno debe permanecer fuera del condominio.</li>
+    <li><strong>No permanecer dentro de los vehículos estacionados.</strong> Estacionar de frente al cajón asignado.</li>
+  </ul>
+
+  <h2><span class="num">V.</span> Mudanzas y Movimiento de Bienes</h2>
+  <p>Toda mudanza o movimiento mayor de bienes debe coordinarse <strong>previamente con la administración</strong>, mediante carta responsiva y depósito de seguridad. Para estancias cortas durante el Mundial, el Arrendador coordinará esto directamente con la administración.</p>
+
+  <h2><span class="num">VI.</span> Aplicación del Reglamento</h2>
+  <div class="danger-box">
+    <p><span class="icon">⚠️</span> Cualquier falta al presente reglamento será observada y, en su caso, corregida por el personal de conserjería, la administración o, de ser necesario, las autoridades competentes. El anfitrión (propietario) asume la responsabilidad económica y legal por daños ocasionados por sus huéspedes.</p>
+  </div>
+
+  <p style="margin-top:24px;font-size:14px;color:var(--muted);font-style:italic">Para atención preventiva o correctiva del presente reglamento, dirigirse al personal de conserjería — disponibles 24/7 para garantizar la buena convivencia.</p>
+
+</div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <p data-lang="es" style="display:none">Reglamento basado en el documento oficial del Condominio Residencial Las Palomas-Tulipanes (Cuernavaca, Morelos · Febrero 2008 · vigente).</p>
+    <p data-lang="en">Regulations based on the official Condominio Residencial Las Palomas-Tulipanes document (Cuernavaca, Morelos · February 2008 · in force).</p>
+    <div class="footer-divider"></div>
+    <p data-lang="es" style="display:none">¿Dudas? Contacta a tu anfitrión: <a href="mailto:lgalvez@nielsen-consulting.com">lgalvez@nielsen-consulting.com</a> · WhatsApp <a href="https://wa.me/525545881648">+52 55 4588 1648</a> <span style="opacity:0.75;font-size:12px;font-style:italic;">(sólo chats · no atendemos llamadas)</span></p>
+    <p data-lang="en">Questions? Contact your host: <a href="mailto:lgalvez@nielsen-consulting.com">lgalvez@nielsen-consulting.com</a> · WhatsApp <a href="https://wa.me/525545881648">+52 55 4588 1648</a> <span style="opacity:0.75;font-size:12px;font-style:italic;">(chat only · no calls accepted)</span></p>
+    <p style="margin-top:18px;font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(232,201,122,0.7)">⚜ Suite Cuernavaca · World Cup 2026 ⚜</p>
+  </div>
+</footer>
+
+<script>
+  function setLang(lang){
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-lang]').forEach(el => {
+      el.style.display = el.getAttribute('data-lang') === lang ? '' : 'none';
+    });
+    document.querySelectorAll('[data-lang-block]').forEach(el => {
+      el.classList.toggle('active', el.getAttribute('data-lang-block') === lang);
+    });
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+    try{ localStorage.setItem('lang', lang); }catch(e){}
+  }
+  // Auto-detect from URL hash or saved preference
+  (function(){
+    var saved = null;
+    try{ saved = localStorage.getItem('lang'); }catch(e){}
+    var hash = location.hash.replace('#','');
+    if(hash === 'es' || hash === 'en') setLang(hash);
+    else if(saved === 'es' || saved === 'en') setLang(saved);
+    else {
+      var browser = (navigator.language || 'en').toLowerCase();
+      setLang(browser.startsWith('es') ? 'es' : 'en');
+    }
+  })();
+</script>
+
+</body>
+</html>

@@ -126,6 +126,14 @@ section{padding:100px 0;}
 .bwa:hover{background:#1da851;transform:translateY(-2px);}
 .bem{display:flex;align-items:center;justify-content:center;gap:12px;background:transparent;color:var(--teal-d);border:1.5px solid var(--teal-d);padding:14px 32px;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;font-weight:500;text-decoration:none;transition:all .3s;font-family:"DM Sans",sans-serif;}
 .bem:hover{background:var(--teal-d);color:white;}
+/* === Botón primario de Reserva (Calendly/GHL) === */
+.bres{display:flex;align-items:center;justify-content:center;gap:12px;background:linear-gradient(135deg,#c9a84c 0%,#e8c97a 100%);color:#0e2a30;padding:18px 32px;font-size:14px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;text-decoration:none;transition:all .3s;font-family:"DM Sans",sans-serif;border:none;cursor:pointer;box-shadow:0 4px 16px rgba(201,168,76,0.35);}
+.bres:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,168,76,0.5);background:linear-gradient(135deg,#e8c97a 0%,#c9a84c 100%);}
+.bres-hero{background:var(--gold);color:var(--dark);padding:14px 32px;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:500;text-decoration:none;display:inline-flex;align-items:center;gap:10px;transition:all .3s;font-family:"DM Sans",sans-serif;border:none;cursor:pointer;}
+.bres-hero:hover{background:var(--gold-l);transform:translateY(-2px);}
+/* === Nota WhatsApp (sólo chats) === */
+.wa-note{display:block;font-size:11px;color:#6b6b6b;margin-top:6px;text-align:center;font-style:italic;letter-spacing:0.3px;line-height:1.4;}
+.wa-note strong{color:#1da851;font-weight:600;}
 footer{background:var(--dark);color:white;padding:60px 40px 30px;text-align:center;}
 .flogo{font-family:"Cormorant Garamond",serif;font-size:28px;color:var(--gold);margin-bottom:8px;}
 .ftag{color:rgba(255,255,255,.4);font-size:12px;letter-spacing:2px;margin-bottom:40px;}
@@ -138,6 +146,10 @@ footer{background:var(--dark);color:white;padding:60px 40px 30px;text-align:cent
 .lightbox img{max-width:90vw;max-height:90vh;object-fit:contain;}
 .lbclose{position:absolute;top:24px;right:32px;color:white;font-size:36px;cursor:pointer;line-height:1;}
 .swa{position:fixed;bottom:30px;right:30px;z-index:998;width:56px;height:56px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:26px;box-shadow:0 6px 24px rgba(37,211,102,.4);transition:transform .2s;}
+.swa:hover{transform:scale(1.08);}
+.sres{position:fixed;bottom:96px;right:30px;z-index:998;background:linear-gradient(135deg,#c9a84c 0%,#e8c97a 100%);border-radius:30px;padding:12px 20px;color:#0e2a30;font-family:"DM Sans",sans-serif;font-weight:700;font-size:13px;letter-spacing:0.5px;text-transform:uppercase;text-decoration:none;display:flex;align-items:center;gap:8px;box-shadow:0 6px 24px rgba(201,168,76,.45);transition:all .2s;}
+.sres:hover{transform:scale(1.05);box-shadow:0 10px 32px rgba(201,168,76,.6);}
+@media(max-width:600px){.sres{bottom:96px;right:20px;padding:10px 14px;font-size:11.5px;}.swa{bottom:30px;right:20px;}}
 .swa:hover{transform:scale(1.1);}
 [data-lang]{display:none;}[data-lang].vis{display:block;}
 .hero-price[data-lang].vis{display:inline-flex;}
@@ -309,6 +321,14 @@ footer{background:var(--dark);color:white;padding:60px 40px 30px;text-align:cent
 /* Botón términos y políticas */
 .terms-btn{display:flex;align-items:center;gap:8px;background:transparent;border:1.5px solid var(--teal);color:var(--teal-d);padding:13px 22px;cursor:pointer;font-family:"DM Sans",sans-serif;font-size:13px;letter-spacing:1px;text-transform:uppercase;transition:all .2s;width:100%;justify-content:center;font-weight:600;}
 .terms-btn:hover{background:var(--teal);color:white;}
+.policy-btn-group{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:14px;}
+@media(max-width:680px){.policy-btn-group{grid-template-columns:1fr;}}
+.policy-btn{display:flex;align-items:center;gap:8px;background:transparent;border:1.5px solid var(--teal);color:var(--teal-d);padding:11px 14px;cursor:pointer;font-family:"DM Sans",sans-serif;font-size:11.5px;letter-spacing:0.6px;text-transform:uppercase;transition:all .2s;justify-content:center;font-weight:600;text-decoration:none;text-align:center;line-height:1.3;}
+.policy-btn:hover{background:var(--teal);color:white;transform:translateY(-1px);box-shadow:0 4px 12px rgba(26,74,82,0.18);}
+.policy-btn.policy-rules{border-color:#a08040;color:#7a5e2e;}
+.policy-btn.policy-rules:hover{background:#a08040;color:white;border-color:#a08040;}
+.policy-btn.policy-privacy{border-color:#3a8a95;color:#2a6b74;}
+.policy-btn.policy-privacy:hover{background:#3a8a95;color:white;border-color:#3a8a95;}
 
 /* Modal de términos (overlay oscuro sobre cualquier fondo) */
 .terms-modal{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;display:none;align-items:flex-start;justify-content:center;padding:20px;overflow-y:auto;backdrop-filter:blur(6px);}
@@ -483,8 +503,11 @@ footer{background:var(--dark);color:white;padding:60px 40px 30px;text-align:cent
     <div class="vis hero-price-usd" data-lang="en">≈ from $4,180 MXN per night · 3 periods available</div>
     <div class="vis hero-price-note" data-lang="en">⚽ World Cup Rate · June 8 to July 19, 2026</div>
     <div class="hero-btns">
-      <a href="https://wa.me/525545881648?text=Hola,%20me%20interesa%20el%20departamento%20para%20el%20Mundial%202026" class="btn-p" target="_blank">📱 <span data-lang="es">Reservar por WhatsApp</span><span data-lang="en" class="vis">Book on WhatsApp</span></a>
+      <a href="https://link.iabotsas.com/widget/bookings/suite-cuernavaca-mundial-2026" class="btn-p" target="_blank" rel="noopener">📅 <span data-lang="es">Solicitar Reservación</span><span data-lang="en" class="vis">Request Reservation</span></a>
       <a href="#gallery" class="btn-o"><span data-lang="es">Ver Fotos</span><span data-lang="en" class="vis">See Photos</span></a>
+    </div>
+    <div style="margin-top:18px;font-size:12.5px;color:rgba(255,255,255,0.78);font-style:italic;letter-spacing:0.3px;line-height:1.5;">
+      <span data-lang="es">💬 ¿Dudas previas? Escríbenos por <a href="https://wa.me/525545881648?text=Hola,%20me%20interesa%20el%20departamento%20para%20el%20Mundial%202026" target="_blank" rel="noopener" style="color:#7eea9c;text-decoration:underline;">WhatsApp +52 55 4588 1648</a> · <strong style="color:#fff;">Sólo chats</strong>, no atendemos llamadas de números desconocidos</span><span data-lang="en" class="vis">💬 Questions first? Message us on <a href="https://wa.me/525545881648?text=Hi,%20I'm%20interested%20in%20the%20apartment%20for%20the%202026%20World%20Cup" target="_blank" rel="noopener" style="color:#7eea9c;text-decoration:underline;">WhatsApp +52 55 4588 1648</a> · <strong style="color:#fff;">Chat only</strong>, we don't answer calls from unknown numbers</span>
     </div>
   </div>
 </section>
@@ -543,7 +566,7 @@ footer{background:var(--dark);color:white;padding:60px 40px 30px;text-align:cent
       <div class="vc-num">03</div>
       <div class="vc-icon">🤝</div>
       <h3 class="vc-title"><span data-lang="es">Por qué es una opción confiable</span><span data-lang="en" class="vis">Why it&apos;s a reliable choice</span></h3>
-      <p class="vc-desc"><span data-lang="es">No somos una empresa anónima detrás de una plataforma. Tu anfitrión <strong>Leo</strong> te atiende personalmente por WhatsApp 24/7. Política transparente del Mundial: <strong>30% anticipo no reembolsable</strong>, sin opción de cancelación por la cercanía del evento, condiciones por escrito y atención directa antes, durante y después de tu estancia.</span><span data-lang="en" class="vis">We&apos;re not an anonymous company behind a platform. Your host <strong>Leo</strong> personally attends you via WhatsApp 24/7. Transparent World Cup policy: <strong>30% non-refundable deposit</strong>, no cancellation option due to event proximity, terms in writing and direct support before, during and after your stay.</span></p>
+      <p class="vc-desc"><span data-lang="es">No somos una empresa anónima detrás de una plataforma. <strong>El Arrendador</strong> te atiende personalmente por WhatsApp 24/7. Política transparente del Mundial: <strong>30% anticipo no reembolsable</strong>, sin opción de cancelación por la cercanía del evento, condiciones por escrito y atención directa antes, durante y después de tu estancia.</span><span data-lang="en" class="vis">We&apos;re not an anonymous company behind a platform. <strong>The Host</strong> personally attends you via WhatsApp 24/7. Transparent World Cup policy: <strong>30% non-refundable deposit</strong>, no cancellation option due to event proximity, terms in writing and direct support before, during and after your stay.</span></p>
       <ul class="vc-bullets">
         <li><span data-lang="es">✓ Fraccionamiento privado con seguridad 24/7</span><span data-lang="en" class="vis">✓ Private gated community with 24/7 security</span></li>
         <li><span data-lang="es">✓ Depa exclusivo (no se comparte)</span><span data-lang="en" class="vis">✓ Entire apartment (not shared)</span></li>
@@ -769,8 +792,9 @@ footer{background:var(--dark);color:white;padding:60px 40px 30px;text-align:cent
         </ul>
       </div>
       <div class="pcta">
-        <a href="https://wa.me/525545881648?text=Hola%20Leo,%20me%20interesa%20reservar%20el%20Slot%201%20(Inauguraci%C3%B3n%208-24%20Jun)%20del%20depa%20para%20el%20Mundial%202026." class="bwa" target="_blank">📱 <span data-lang="es">Reservar Slot 1 por WhatsApp</span><span data-lang="en" class="vis">Book Slot 1 on WhatsApp</span></a>
-        <a href="mailto:leo.galvez.medina@gmail.com?subject=Reserva%20Slot%201%20-%20Inauguraci%C3%B3n%20Mundial%202026" class="bem">✉️ <span data-lang="es">Reservar por Email</span><span data-lang="en" class="vis">Book by Email</span></a>
+        <a href="https://link.iabotsas.com/widget/bookings/suite-cuernavaca-mundial-2026" class="bres" target="_blank" rel="noopener">📅 <span data-lang="es">Solicitar Slot 1 (Inauguración)</span><span data-lang="en" class="vis">Request Slot 1 (Opening)</span></a>
+        <a href="https://wa.me/525545881648?text=Hola,%20tengo%20dudas%20sobre%20el%20Slot%201%20(Inauguraci%C3%B3n%208-24%20Jun)%20del%20depa%20para%20el%20Mundial%202026." class="bwa" target="_blank">💬 <span data-lang="es">Pregunta por WhatsApp</span><span data-lang="en" class="vis">Ask on WhatsApp</span></a>
+        <span class="wa-note"><span data-lang="es"><strong>Sólo chats</strong> · No atendemos llamadas de números desconocidos</span><span data-lang="en" class="vis"><strong>Chat only</strong> · We don't answer calls from unknown numbers</span></span>
       </div>
     </div>
   </div>
@@ -994,8 +1018,9 @@ footer{background:var(--dark);color:white;padding:60px 40px 30px;text-align:cent
         <p class="sh-note"><span data-lang="es">💡 Periodo ideal si quieres vivir el cierre del Mundial en México con menor demanda y precio.</span><span data-lang="en" class="vis">💡 Ideal period to experience the end of the Mexico phase with lower demand and pricing.</span></p>
       </div>
       <div class="pcta">
-        <a href="https://wa.me/525545881648?text=Hola%20Leo,%20me%20interesa%20reservar%20el%20Slot%202%20(Fase%20Final%2025%20Jun-5%20Jul)%20del%20depa%20para%20el%20Mundial%202026." class="bwa" target="_blank">📱 <span data-lang="es">Reservar Slot 2 por WhatsApp</span><span data-lang="en" class="vis">Book Slot 2 on WhatsApp</span></a>
-        <a href="mailto:leo.galvez.medina@gmail.com?subject=Reserva%20Slot%202%20-%20Fase%20Final%20Mundial%202026" class="bem">✉️ <span data-lang="es">Reservar por Email</span><span data-lang="en" class="vis">Book by Email</span></a>
+        <a href="https://link.iabotsas.com/widget/bookings/suite-cuernavaca-mundial-2026" class="bres" target="_blank" rel="noopener">📅 <span data-lang="es">Solicitar Slot 2 (Fase Final)</span><span data-lang="en" class="vis">Request Slot 2 (Final Stage)</span></a>
+        <a href="https://wa.me/525545881648?text=Hola,%20tengo%20dudas%20sobre%20el%20Slot%202%20(Fase%20Final%2025%20Jun-5%20Jul)%20del%20depa%20para%20el%20Mundial%202026." class="bwa" target="_blank">💬 <span data-lang="es">Pregunta por WhatsApp</span><span data-lang="en" class="vis">Ask on WhatsApp</span></a>
+        <span class="wa-note"><span data-lang="es"><strong>Sólo chats</strong> · No atendemos llamadas de números desconocidos</span><span data-lang="en" class="vis"><strong>Chat only</strong> · We don't answer calls from unknown numbers</span></span>
       </div>
     </div>
   </div>
@@ -1125,8 +1150,9 @@ footer{background:var(--dark);color:white;padding:60px 40px 30px;text-align:cent
         <p class="sh-note"><span data-lang="es">💡 Aprovecha la mejor tarifa para combinar Mundial + turismo en Acapulco, Taxco, Tepoztlán y más.</span><span data-lang="en" class="vis">💡 Best rate to combine the World Cup with tourism in Acapulco, Taxco, Tepoztlán and beyond.</span></p>
       </div>
       <div class="pcta">
-        <a href="https://wa.me/525545881648?text=Hola%20Leo,%20me%20interesa%20reservar%20el%20Slot%203%20(Semis%20y%20Final%206-19%20Jul)%20del%20depa%20para%20el%20Mundial%202026." class="bwa" target="_blank">📱 <span data-lang="es">Reservar Slot 3 por WhatsApp</span><span data-lang="en" class="vis">Book Slot 3 on WhatsApp</span></a>
-        <a href="mailto:leo.galvez.medina@gmail.com?subject=Reserva%20Slot%203%20-%20Semis%20y%20Final%20Mundial%202026" class="bem">✉️ <span data-lang="es">Reservar por Email</span><span data-lang="en" class="vis">Book by Email</span></a>
+        <a href="https://link.iabotsas.com/widget/bookings/suite-cuernavaca-mundial-2026" class="bres" target="_blank" rel="noopener">📅 <span data-lang="es">Solicitar Slot 3 (Semis y Final)</span><span data-lang="en" class="vis">Request Slot 3 (Semis & Final)</span></a>
+        <a href="https://wa.me/525545881648?text=Hola,%20tengo%20dudas%20sobre%20el%20Slot%203%20(Semis%20y%20Final%206-19%20Jul)%20del%20depa%20para%20el%20Mundial%202026." class="bwa" target="_blank">💬 <span data-lang="es">Pregunta por WhatsApp</span><span data-lang="en" class="vis">Ask on WhatsApp</span></a>
+        <span class="wa-note"><span data-lang="es"><strong>Sólo chats</strong> · No atendemos llamadas de números desconocidos</span><span data-lang="en" class="vis"><strong>Chat only</strong> · We don't answer calls from unknown numbers</span></span>
       </div>
     </div>
   </div>
@@ -1147,9 +1173,17 @@ footer{background:var(--dark);color:white;padding:60px 40px 30px;text-align:cent
       <li><span data-lang="es">WhatsApp Concierge 24/7</span><span data-lang="en" class="vis">24/7 WhatsApp Concierge</span></li>
     </ul>
     <p class="includes-note"><span data-lang="es">⚠️ <strong>No incluido:</strong> servicio de limpieza semanal durante la estancia (disponible con costo adicional bajo solicitud).</span><span data-lang="en" class="vis">⚠️ <strong>Not included:</strong> weekly in-stay housekeeping (available for an extra fee upon request).</span></p>
-    <button class="terms-btn" onclick="openTerms()" type="button">
-      <span data-lang="es">📋 Ver términos y políticas de reserva</span><span data-lang="en" class="vis">📋 View booking terms and policies</span>
-    </button>
+    <div class="policy-btn-group">
+      <a class="policy-btn policy-rules" href="reglamento.html" target="_blank" rel="noopener">
+        <span data-lang="es">📜 Reglamento del Condominio</span><span data-lang="en" class="vis">📜 Condominium Rules</span>
+      </a>
+      <a class="policy-btn policy-privacy" href="privacidad.html" target="_blank" rel="noopener">
+        <span data-lang="es">🔒 Aviso de Privacidad</span><span data-lang="en" class="vis">🔒 Privacy Notice</span>
+      </a>
+      <button class="policy-btn" onclick="openTerms()" type="button">
+        <span data-lang="es">📋 Términos de Reserva</span><span data-lang="en" class="vis">📋 Booking Terms</span>
+      </button>
+    </div>
   </div>
 </div></section>
 
@@ -1642,13 +1676,20 @@ footer{background:var(--dark);color:white;padding:60px 40px 30px;text-align:cent
     <a href="#gallery"><span data-lang="es">Galería</span><span data-lang="en" class="vis">Gallery</span></a>
     <a href="#location"><span data-lang="es">Ubicación</span><span data-lang="en" class="vis">Location</span></a>
     <a href="#schedule"><span data-lang="es">Partidos</span><span data-lang="en" class="vis">Matches</span></a>
+    <a href="https://link.iabotsas.com/widget/bookings/suite-cuernavaca-mundial-2026" target="_blank" rel="noopener" style="color:var(--gold);font-weight:600;"><span data-lang="es">📅 Reservar</span><span data-lang="en" class="vis">📅 Book</span></a>
     <a href="https://wa.me/525545881648" target="_blank">WhatsApp</a>
-    <a href="mailto:leo.galvez.medina@gmail.com">Email</a>
+    <a href="mailto:lgalvez@nielsen-consulting.com">Email</a>
+    <a href="reglamento.html" target="_blank" rel="noopener"><span data-lang="es">Reglamento</span><span data-lang="en" class="vis">Rules</span></a>
+    <a href="privacidad.html" target="_blank" rel="noopener"><span data-lang="es">Privacidad</span><span data-lang="en" class="vis">Privacy</span></a>
+  </div>
+  <div style="text-align:center;font-size:11.5px;color:rgba(255,255,255,0.6);margin-top:14px;font-style:italic;letter-spacing:0.3px;line-height:1.5;padding:0 20px;">
+    <span data-lang="es">📱 WhatsApp: <strong style="color:rgba(255,255,255,0.85);">sólo chats</strong> · No atendemos llamadas de números desconocidos</span><span data-lang="en" class="vis">📱 WhatsApp: <strong style="color:rgba(255,255,255,0.85);">chat only</strong> · We don't answer calls from unknown numbers</span>
   </div>
   <div class="fbot">© 2026 Suite Cuernavaca &nbsp;·&nbsp; <span data-lang="es">Todos los derechos reservados</span><span data-lang="en" class="vis">All rights reserved</span></div>
 </footer>
 
 <div class="lightbox" id="lb" onclick="closeLB()"><span class="lbclose">×</span><img id="lbimg" src="" alt=""></div>
+<a href="https://link.iabotsas.com/widget/bookings/suite-cuernavaca-mundial-2026" class="sres" target="_blank" rel="noopener">📅 <span data-lang="es">Reservar</span><span data-lang="en" class="vis">Book</span></a>
 <a href="https://wa.me/525545881648?text=Hola,%20me%20interesa%20el%20departamento%20para%20el%20Mundial%202026" class="swa" target="_blank">📱</a>
 
 <script>
@@ -2042,6 +2083,23 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeTerms()
       <div class="tr-body">
         <h4><span data-lang="es">Check-in y check-out</span><span data-lang="en" class="vis">Check-in and check-out</span></h4>
         <p><span data-lang="es">🕒 <strong>Check-in:</strong> a partir de las 15:00 hrs<br>🕚 <strong>Check-out:</strong> antes de las 12:00 hrs<br>Entre cada huésped se realiza limpieza profunda; no se permite traslape de fechas.</span><span data-lang="en" class="vis">🕒 <strong>Check-in:</strong> from 3:00 PM<br>🕚 <strong>Check-out:</strong> before 12:00 PM<br>Deep cleaning is performed between guests; no overlapping dates allowed.</span></p>
+      </div>
+    </div>
+
+    <div style="margin-top:24px;padding:18px 20px;background:#faf5ee;border-left:3px solid #c9a84c;border-radius:4px;">
+      <p style="margin:0 0 10px 0;font-size:13px;color:#2a6b74;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;">
+        <span data-lang="es">📚 Documentos complementarios</span><span data-lang="en" class="vis">📚 Additional documents</span>
+      </p>
+      <p style="margin:0 0 12px 0;font-size:14px;line-height:1.55;color:#2d2d2d;">
+        <span data-lang="es">Antes de confirmar tu reserva, revisa también el reglamento del condominio y nuestro aviso de privacidad:</span><span data-lang="en" class="vis">Before confirming your reservation, please also review the condominium rules and our privacy notice:</span>
+      </p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <a href="reglamento.html" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:9px 14px;background:transparent;border:1.5px solid #a08040;color:#7a5e2e;border-radius:3px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;text-decoration:none;letter-spacing:0.5px;text-transform:uppercase;transition:all .2s;">
+          <span data-lang="es">📜 Reglamento del Condominio</span><span data-lang="en" class="vis">📜 Condominium Rules</span>
+        </a>
+        <a href="privacidad.html" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:9px 14px;background:transparent;border:1.5px solid #3a8a95;color:#2a6b74;border-radius:3px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;text-decoration:none;letter-spacing:0.5px;text-transform:uppercase;transition:all .2s;">
+          <span data-lang="es">🔒 Aviso de Privacidad</span><span data-lang="en" class="vis">🔒 Privacy Notice</span>
+        </a>
       </div>
     </div>
 
