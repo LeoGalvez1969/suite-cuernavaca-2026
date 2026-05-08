@@ -1222,12 +1222,12 @@ footer{background:var(--dark);color:white;padding:60px 40px 30px;text-align:cent
     </ul>
     <p class="includes-note"><span data-lang="es">⚠️ <strong>No incluido:</strong> servicio de limpieza semanal durante la estancia (disponible con costo adicional bajo solicitud).</span><span data-lang="en" class="vis">⚠️ <strong>Not included:</strong> weekly in-stay housekeeping (available for an extra fee upon request).</span></p>
     <div class="policy-btn-group">
-      <a class="policy-btn policy-rules" href="reglamento.html" target="_blank" rel="noopener">
+      <button class="policy-btn policy-rules" onclick="openRules()" type="button">
         <span data-lang="es">📜 Reglamento del Condominio</span><span data-lang="en" class="vis">📜 Condominium Rules</span>
-      </a>
-      <a class="policy-btn policy-privacy" href="privacidad.html" target="_blank" rel="noopener">
+      </button>
+      <button class="policy-btn policy-privacy" onclick="openPrivacy()" type="button">
         <span data-lang="es">🔒 Aviso de Privacidad</span><span data-lang="en" class="vis">🔒 Privacy Notice</span>
-      </a>
+      </button>
       <button class="policy-btn" onclick="openTerms()" type="button">
         <span data-lang="es">📋 Términos de Reserva</span><span data-lang="en" class="vis">📋 Booking Terms</span>
       </button>
@@ -1727,8 +1727,8 @@ footer{background:var(--dark);color:white;padding:60px 40px 30px;text-align:cent
     <a href="https://link.iabotsas.com/widget/bookings/suite-cuernavaca-mundial-2026" target="_blank" rel="noopener" style="color:var(--gold);font-weight:600;"><span data-lang="es">📅 Reservar</span><span data-lang="en" class="vis">📅 Book</span></a>
     <a href="https://wa.me/527772225113" target="_blank">WhatsApp</a>
     <a href="mailto:lgalvez@nielsen-technology.com">Email</a>
-    <a href="reglamento.html" target="_blank" rel="noopener"><span data-lang="es">Reglamento</span><span data-lang="en" class="vis">Rules</span></a>
-    <a href="privacidad.html" target="_blank" rel="noopener"><span data-lang="es">Privacidad</span><span data-lang="en" class="vis">Privacy</span></a>
+    <a href="#" onclick="event.preventDefault();openRules();"><span data-lang="es">Reglamento</span><span data-lang="en" class="vis">Rules</span></a>
+    <a href="#" onclick="event.preventDefault();openPrivacy();"><span data-lang="es">Privacidad</span><span data-lang="en" class="vis">Privacy</span></a>
   </div>
   <div style="text-align:center;font-size:11.5px;color:rgba(255,255,255,0.6);margin-top:14px;font-style:italic;letter-spacing:0.3px;line-height:1.5;padding:0 20px;">
     <span data-lang="es">📱 WhatsApp: <strong style="color:rgba(255,255,255,0.85);">sólo chats</strong> · No atendemos llamadas de números desconocidos</span><span data-lang="en" class="vis">📱 WhatsApp: <strong style="color:rgba(255,255,255,0.85);">chat only</strong> · We don't answer calls from unknown numbers</span>
@@ -2073,17 +2073,23 @@ function showSlot(id,btn){
   var pane=document.getElementById('slot-'+id);
   if(pane)pane.classList.add('active');
 }
-/* Modal de términos */
-function openTerms(){
-  var m=document.getElementById('termsModal');
-  if(m){m.classList.add('open');document.body.style.overflow='hidden';}
+/* Modales (Términos / Reglamento / Privacidad) */
+function openTerms(){openModal('termsModal');}
+function closeTerms(){closeModal('termsModal');}
+function openRules(){openModal('rulesModal');}
+function closeRules(){closeModal('rulesModal');}
+function openPrivacy(){openModal('privacyModal');}
+function closePrivacy(){closeModal('privacyModal');}
+function openModal(id){
+  var m=document.getElementById(id);
+  if(m){m.classList.add('open');document.body.style.overflow='hidden';m.scrollTop=0;var c=m.querySelector('.terms-content,.legal-content');if(c)c.scrollTop=0;}
 }
-function closeTerms(){
-  var m=document.getElementById('termsModal');
+function closeModal(id){
+  var m=document.getElementById(id);
   if(m){m.classList.remove('open');document.body.style.overflow='';}
 }
 /* Cerrar modal con tecla ESC */
-document.addEventListener('keydown',function(e){if(e.key==='Escape')closeTerms();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeTerms();closeRules();closePrivacy();}});
 
 </script>
 
@@ -2142,16 +2148,253 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeTerms()
         <span data-lang="es">Antes de confirmar tu reserva, revisa también el reglamento del condominio y nuestro aviso de privacidad:</span><span data-lang="en" class="vis">Before confirming your reservation, please also review the condominium rules and our privacy notice:</span>
       </p>
       <div style="display:flex;gap:10px;flex-wrap:wrap;">
-        <a href="reglamento.html" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:9px 14px;background:transparent;border:1.5px solid #c66e44;color:#8a4a2a;border-radius:3px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;text-decoration:none;letter-spacing:0.5px;text-transform:uppercase;transition:all .2s;">
+        <a href="#" onclick="event.preventDefault();closeTerms();setTimeout(openRules,250);" style="display:inline-flex;align-items:center;gap:6px;padding:9px 14px;background:transparent;border:1.5px solid #c66e44;color:#8a4a2a;border-radius:3px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;text-decoration:none;letter-spacing:0.5px;text-transform:uppercase;transition:all .2s;">
           <span data-lang="es">📜 Reglamento del Condominio</span><span data-lang="en" class="vis">📜 Condominium Rules</span>
         </a>
-        <a href="privacidad.html" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:9px 14px;background:transparent;border:1.5px solid #4a9eb8;color:#1f6f8b;border-radius:3px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;text-decoration:none;letter-spacing:0.5px;text-transform:uppercase;transition:all .2s;">
+        <a href="#" onclick="event.preventDefault();closeTerms();setTimeout(openPrivacy,250);" style="display:inline-flex;align-items:center;gap:6px;padding:9px 14px;background:transparent;border:1.5px solid #4a9eb8;color:#1f6f8b;border-radius:3px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;text-decoration:none;letter-spacing:0.5px;text-transform:uppercase;transition:all .2s;">
           <span data-lang="es">🔒 Aviso de Privacidad</span><span data-lang="en" class="vis">🔒 Privacy Notice</span>
         </a>
       </div>
     </div>
 
     <p class="terms-foot"><span data-lang="es">💬 ¿Tienes preguntas? Escríbenos por WhatsApp y te respondemos personalmente.</span><span data-lang="en" class="vis">💬 Questions? Message us on WhatsApp and we'll reply personally.</span></p>
+  </div>
+</div>
+
+<!-- ============ MODAL: REGLAMENTO DEL CONDOMINIO ============ -->
+<style>
+.legal-section{margin-top:30px;padding-top:18px;border-top:1px solid rgba(31,111,139,0.15);}
+.legal-section:first-of-type{margin-top:18px;padding-top:0;border-top:none;}
+.legal-section h4{font-family:"Cormorant Garamond",serif;font-size:20px;color:var(--aqua-d);font-weight:600;margin-bottom:12px;display:flex;align-items:baseline;gap:10px;}
+.legal-section h4 .num{font-size:11px;color:var(--coral);font-weight:700;letter-spacing:0.15em;font-style:italic;background:rgba(232,138,95,0.12);padding:3px 8px;border-radius:3px;}
+.legal-section h5{font-size:14px;color:var(--aqua);font-weight:700;margin:14px 0 6px;}
+.legal-section p{font-size:14px;color:var(--text);line-height:1.65;margin-bottom:10px;}
+.legal-section ul{list-style:none;padding:0;margin:10px 0;counter-reset:rule;}
+.legal-section ul li{position:relative;padding:8px 0 8px 38px;border-bottom:1px dotted rgba(31,111,139,0.15);font-size:13.5px;line-height:1.55;color:var(--text);counter-increment:rule;}
+.legal-section ul li:last-child{border-bottom:none;}
+.legal-section ul li::before{content:counter(rule);position:absolute;left:0;top:8px;width:26px;height:26px;border-radius:50%;background:var(--aqua);color:var(--cream);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;font-family:"Cormorant Garamond",serif;}
+.legal-section ul.no-counter{counter-reset:none;}
+.legal-section ul.no-counter li::before{content:"✓";background:var(--leaf);color:var(--cream);width:22px;height:22px;font-size:13px;}
+.legal-section ul.dash li::before{content:"·";background:transparent;color:var(--coral);font-size:24px;width:auto;height:auto;}
+.legal-callout{background:linear-gradient(135deg,rgba(232,138,95,0.08) 0%,rgba(232,138,95,0.03) 100%);border:1px solid rgba(232,138,95,0.35);border-left:4px solid var(--coral);padding:14px 18px;margin:14px 0;border-radius:4px;font-size:13.5px;line-height:1.55;color:var(--text);}
+.legal-callout strong{color:var(--aqua-d);}
+.legal-info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:14px 0;}
+.legal-info-card{background:var(--sand);padding:12px 14px;border-radius:4px;border:1px solid rgba(31,111,139,0.12);}
+.legal-info-card .label{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--coral);font-weight:700;margin-bottom:4px;}
+.legal-info-card .value{font-size:15px;color:var(--aqua-d);font-weight:700;font-family:"Cormorant Garamond",serif;}
+.legal-info-card .desc{font-size:12px;color:var(--muted);margin-top:3px;line-height:1.4;}
+.legal-schedule{display:flex;align-items:center;gap:14px;background:var(--aqua-d);color:var(--cream);padding:14px 18px;border-radius:4px;margin:14px 0;border-left:4px solid var(--coral);}
+.legal-schedule .clock{font-size:24px;line-height:1;}
+.legal-schedule .label{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(244,168,125,0.95);font-weight:700;}
+.legal-schedule .time{font-size:18px;font-weight:700;font-family:"Cormorant Garamond",serif;margin-top:2px;}
+.legal-contact{background:linear-gradient(135deg,var(--aqua-d) 0%,var(--aqua) 100%);color:var(--cream);padding:18px 20px;border-radius:6px;margin:18px 0;border-left:4px solid var(--coral);}
+.legal-contact strong{color:var(--cream);font-weight:600;}
+.legal-contact a{color:var(--coral-l);border-bottom:1px dotted var(--coral);text-decoration:none;}
+.legal-contact a:hover{color:var(--cream);}
+.legal-contact .contact-rows{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px;}
+@media(max-width:600px){.legal-contact .contact-rows{grid-template-columns:1fr;}}
+.legal-contact .label{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(244,168,125,0.95);font-weight:700;margin-bottom:3px;}
+.legal-contact .value{font-size:14px;}
+</style>
+
+<div class="terms-modal" id="rulesModal" onclick="if(event.target===this)closeRules()">
+  <div class="terms-content">
+    <button class="terms-close" onclick="closeRules()" type="button" aria-label="Cerrar">×</button>
+    <h3 class="terms-title"><span data-lang="es">📜 Reglamento del Condominio</span><span data-lang="en" class="vis">📜 Condominium Rules</span></h3>
+    <p class="terms-intro"><span data-lang="es">Disposiciones obligatorias para huéspedes durante el Mundial 2026. Basado en el reglamento oficial de Residencial Las Palomas-Tulipanes (Calle 32 #100, Col. Flores Magón, Cuernavaca, Morelos).</span><span data-lang="en" class="vis">Mandatory provisions for guests during the 2026 World Cup. Based on the official internal regulations of Residencial Las Palomas-Tulipanes (Calle 32 #100, Col. Flores Magón, Cuernavaca, Morelos).</span></p>
+
+    <div class="legal-section">
+      <h4><span class="num">I</span><span data-lang="es">Disposiciones Generales</span><span data-lang="en" class="vis">General Provisions</span></h4>
+      <p><span data-lang="es">El condominio se divide en dos secciones, cada una con su propia alberca, palapa y áreas comunes. Los huéspedes deben respetar la sección correspondiente a su unidad asignada.</span><span data-lang="en" class="vis">The condominium is divided into two sections, each with its own pool, palapa and common areas. Guests must respect the section corresponding to their assigned unit.</span></p>
+      <div class="legal-info-grid">
+        <div class="legal-info-card">
+          <div class="label"><span data-lang="es">Dirección</span><span data-lang="en" class="vis">Address</span></div>
+          <div class="value">Calle 32 #100</div>
+          <div class="desc">Col. Flores Magón, Cuernavaca</div>
+        </div>
+        <div class="legal-info-card">
+          <div class="label"><span data-lang="es">Velocidad máxima</span><span data-lang="en" class="vis">Speed limit</span></div>
+          <div class="value">10 km/h</div>
+          <div class="desc"><span data-lang="es">Dentro del condominio</span><span data-lang="en" class="vis">Within the complex</span></div>
+        </div>
+        <div class="legal-info-card">
+          <div class="label"><span data-lang="es">Estacionamiento</span><span data-lang="en" class="vis">Parking</span></div>
+          <div class="value"><span data-lang="es">1 cajón</span><span data-lang="en" class="vis">1 space</span></div>
+          <div class="desc"><span data-lang="es">Sin espacios para visitas</span><span data-lang="en" class="vis">No visitor parking</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="legal-section">
+      <h4><span class="num">II</span><span data-lang="es">Reglamento de Alberca y Áreas Comunes</span><span data-lang="en" class="vis">Pool & Common Area Rules</span></h4>
+      <div class="legal-schedule">
+        <div class="clock">🕗</div>
+        <div>
+          <div class="label"><span data-lang="es">Horario de alberca y palapa</span><span data-lang="en" class="vis">Pool & palapa hours</span></div>
+          <div class="time">07:00 – 22:00</div>
+        </div>
+      </div>
+      <ul>
+        <li><span data-lang="es"><strong>Prohibido fumar, ingerir alimentos y bebidas</strong>, así como artículos de cristal en la alberca y su andador.</span><span data-lang="en" class="vis"><strong>Smoking, food and drinks are prohibited</strong>, as well as glass items in the pool and its perimeter.</span></li>
+        <li><span data-lang="es"><strong>Prohibido acampar o pernoctar</strong> en las áreas comunes.</span><span data-lang="en" class="vis"><strong>Camping or staying overnight</strong> in common areas is forbidden.</span></li>
+        <li><span data-lang="es"><strong>Bañarse antes de entrar a la alberca.</strong> Usar traje de baño únicamente — no mezclilla, no camisetas, no ropa de algodón.</span><span data-lang="en" class="vis"><strong>Shower before entering the pool.</strong> Wear swimwear only — no jeans, t-shirts, or cotton clothing.</span></li>
+        <li><span data-lang="es"><strong>El uso de la alberca es bajo su responsabilidad.</strong> Los niños deben estar supervisados por adultos en todo momento. Los bebés deben usar pañal para nadar.</span><span data-lang="en" class="vis"><strong>Pool use is at your own risk.</strong> Children must be supervised by an adult at all times. Babies must wear swim diapers.</span></li>
+        <li><span data-lang="es"><strong>Al usar bronceador, esperar 45 minutos</strong> antes de entrar a la alberca.</span><span data-lang="en" class="vis"><strong>If using sunscreen, wait 45 minutes</strong> before entering the pool.</span></li>
+        <li><span data-lang="es">Prohibido el uso de la alberca a quien padezca enfermedad contagiosa (rubeola, varicela, etc.) o se encuentre en estado de ebriedad.</span><span data-lang="en" class="vis">Pool use is forbidden if you have a contagious illness (rubella, chickenpox, etc.) or are intoxicated.</span></li>
+        <li><span data-lang="es"><strong>No se permiten juegos con pelota</strong> u otros que atenten contra la seguridad en alberca, áreas comunes y estacionamientos. Inflables grandes prohibidos.</span><span data-lang="en" class="vis"><strong>No ball games</strong> or activities compromising safety in the pool, common areas, or parking lots. Large inflatables prohibited.</span></li>
+        <li><span data-lang="es">Estéreos y grabadoras solo con <strong>volumen moderado, de 10:00 a 22:00</strong>.</span><span data-lang="en" class="vis">Stereos and speakers only at <strong>moderate volume between 10:00 and 22:00</strong>.</span></li>
+        <li><span data-lang="es"><strong>Prohibido encender anafres, parrillas de carbón o gas</strong> dentro de la palapa.</span><span data-lang="en" class="vis"><strong>No charcoal or gas grills inside the palapa.</strong></span></li>
+        <li><span data-lang="es">Al terminar de usar la palapa, <strong>dejar el espacio limpio</strong> y depositar la basura en los contenedores junto a la entrada.</span><span data-lang="en" class="vis">After using the palapa, <strong>leave the space clean</strong> and dispose of trash in containers near the entrance gate.</span></li>
+      </ul>
+    </div>
+
+    <div class="legal-section">
+      <h4><span class="num">III</span><span data-lang="es">Responsabilidad del Huésped</span><span data-lang="en" class="vis">Guest Responsibility</span></h4>
+      <div class="legal-callout">
+        <strong>📌 <span data-lang="es">Artículo 15 (clave para huéspedes):</span><span data-lang="en" class="vis">Article 15 (key for guests):</span></strong> <span data-lang="es">El propietario/Arrendador es el responsable único de sus visitantes. Debe informarles del presente reglamento y será responsable del pago de cualquier daño o accidente que ocasionen.</span><span data-lang="en" class="vis">The owner/Host is fully responsible for visitors. They must be informed of these rules and the Host will be the sole party responsible for any damage or accident caused by them.</span>
+      </div>
+      <ul>
+        <li><span data-lang="es"><strong>Áreas comunes</strong> (lobby, pasillos, escaleras) no pueden ser reservadas ni alteradas con macetas, adornos o muebles.</span><span data-lang="en" class="vis"><strong>Common areas</strong> (lobby, hallways, stairs) cannot be reserved nor altered with planters, decorations or furniture.</span></li>
+        <li><span data-lang="es"><strong>No se permiten animales</strong> en departamentos ni áreas comunes, incluyendo mascotas de visitantes.</span><span data-lang="en" class="vis"><strong>Pets are not allowed</strong> in apartments or common areas, including visitors' pets.</span></li>
+        <li><span data-lang="es"><strong>No tender ropa</strong> en ventanas, balcones o barandales.</span><span data-lang="en" class="vis"><strong>Do not hang clothes</strong> from windows, balconies or railings.</span></li>
+        <li><span data-lang="es">Limpiar balcones solo con trapo húmedo — evitar derramar agua a pisos inferiores.</span><span data-lang="en" class="vis">Clean balconies only with a damp cloth — avoid spilling water onto units below.</span></li>
+        <li><span data-lang="es">No dejar bicicletas, juguetes u objetos en áreas comunes, andadores o estacionamientos.</span><span data-lang="en" class="vis">Do not leave bicycles, toys or objects in common areas, walkways or parking lots.</span></li>
+      </ul>
+    </div>
+
+    <div class="legal-section">
+      <h4><span class="num">IV</span><span data-lang="es">Vehículos y Estacionamiento</span><span data-lang="en" class="vis">Vehicles & Parking</span></h4>
+      <ul>
+        <li><span data-lang="es"><strong>Velocidad máxima 10 km/h</strong> dentro de todo el condominio.</span><span data-lang="en" class="vis"><strong>Maximum speed 10 km/h</strong> within the entire complex.</span></li>
+        <li><span data-lang="es">Cada departamento cuenta con <strong>un solo cajón asignado</strong>. No hay estacionamiento para visitas — todo vehículo ajeno permanece fuera del condominio.</span><span data-lang="en" class="vis">Each apartment has <strong>one assigned parking space only</strong>. No visitor parking — external vehicles must remain outside.</span></li>
+        <li><span data-lang="es"><strong>No permanecer dentro de los vehículos</strong> estacionados.</span><span data-lang="en" class="vis"><strong>Do not stay inside parked vehicles.</strong></span></li>
+      </ul>
+    </div>
+
+    <div class="legal-section">
+      <h4><span class="num">V</span><span data-lang="es">Mudanzas y Aplicación</span><span data-lang="en" class="vis">Move-in & Enforcement</span></h4>
+      <p><span data-lang="es">Toda mudanza debe coordinarse con la administración mediante carta responsiva y depósito de seguridad. Para estancias del Mundial, el Arrendador coordinará esto directamente.</span><span data-lang="en" class="vis">Any move-in must be coordinated with the administration through a liability letter and security deposit. For World Cup stays, the Host will coordinate this directly.</span></p>
+      <div class="legal-callout" style="background:rgba(232,138,95,0.06);border-color:rgba(232,138,95,0.4);">
+        <strong>⚠️ <span data-lang="es">Aplicación:</span><span data-lang="en" class="vis">Enforcement:</span></strong> <span data-lang="es">Cualquier falta al reglamento será observada y corregida por conserjería, la administración o autoridades competentes. El Arrendador asume responsabilidad económica y legal por daños ocasionados por sus huéspedes.</span><span data-lang="en" class="vis">Any violation will be observed and corrected by the front desk, administration or competent authorities. The Host bears full financial and legal responsibility for damages caused by guests.</span>
+      </div>
+    </div>
+
+    <p class="terms-foot"><span data-lang="es">📞 Para atención preventiva o correctiva, dirígete al personal de conserjería del condominio (disponibles 24/7).</span><span data-lang="en" class="vis">📞 For preventive or corrective attention, contact the condominium front desk (available 24/7).</span></p>
+  </div>
+</div>
+
+<!-- ============ MODAL: AVISO DE PRIVACIDAD ============ -->
+<div class="terms-modal" id="privacyModal" onclick="if(event.target===this)closePrivacy()">
+  <div class="terms-content">
+    <button class="terms-close" onclick="closePrivacy()" type="button" aria-label="Cerrar">×</button>
+    <h3 class="terms-title"><span data-lang="es">🔒 Aviso de Privacidad</span><span data-lang="en" class="vis">🔒 Privacy Notice</span></h3>
+    <p class="terms-intro"><span data-lang="es">Tratamiento de datos personales conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (México) y normativa internacional aplicable (incluyendo principios GDPR para huéspedes de la UE/Reino Unido).</span><span data-lang="en" class="vis">Personal data processing in compliance with Mexico's Federal Law on Protection of Personal Data Held by Private Parties and applicable international standards (incl. GDPR principles for EU/UK guests).</span></p>
+
+    <div class="legal-section">
+      <h4><span class="num">I</span><span data-lang="es">Responsable de los Datos</span><span data-lang="en" class="vis">Data Controller</span></h4>
+      <div class="legal-contact">
+        <strong style="font-size:15px;"><span data-lang="es">El Arrendador</span><span data-lang="en" class="vis">The Host / Lessor</span></strong>
+        <div style="font-size:13px;margin-top:4px;color:rgba(254,252,248,0.9);"><span data-lang="es">Propietario de Suite Cuernavaca</span><span data-lang="en" class="vis">Owner of Suite Cuernavaca</span></div>
+        <div class="contact-rows">
+          <div>
+            <div class="label"><span data-lang="es">Correo</span><span data-lang="en" class="vis">Email</span></div>
+            <div class="value"><a href="mailto:lgalvez@nielsen-technology.com">lgalvez@nielsen-technology.com</a></div>
+          </div>
+          <div>
+            <div class="label">WhatsApp <span style="font-weight:400;">(<span data-lang="es">sólo chats</span><span data-lang="en" class="vis">chat only</span>)</span></div>
+            <div class="value"><a href="https://wa.me/527772225113">+52 777 222 5113</a></div>
+          </div>
+        </div>
+        <div style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(244,168,125,0.3);font-size:12px;color:rgba(254,252,248,0.85);">
+          <span data-lang="es"><strong style="color:rgba(244,168,125,0.95);">Domicilio del inmueble:</strong> Calle 32 #100, Col. Ricardo Flores Magón, C.P. 62385, Cuernavaca, Morelos, México.</span><span data-lang="en" class="vis"><strong style="color:rgba(244,168,125,0.95);">Property address:</strong> Calle 32 #100, Col. Ricardo Flores Magón, C.P. 62385, Cuernavaca, Morelos, México.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="legal-section">
+      <h4><span class="num">II</span><span data-lang="es">Datos que Recabamos</span><span data-lang="en" class="vis">What Data We Collect</span></h4>
+      <h5><span data-lang="es">Datos de identificación:</span><span data-lang="en" class="vis">Identification data:</span></h5>
+      <ul class="dash">
+        <li><span data-lang="es">Nombre completo, nacionalidad e identificación oficial (sólo para check-in).</span><span data-lang="en" class="vis">Full name, nationality and government-issued ID (for check-in only).</span></li>
+      </ul>
+      <h5><span data-lang="es">Datos de contacto y reservación:</span><span data-lang="en" class="vis">Contact and reservation data:</span></h5>
+      <ul class="dash">
+        <li><span data-lang="es">Email, teléfono/WhatsApp, país, fechas, número de huéspedes, solicitudes especiales.</span><span data-lang="en" class="vis">Email, phone/WhatsApp, country, dates, number of guests, special requests.</span></li>
+      </ul>
+      <h5><span data-lang="es">Datos financieros:</span><span data-lang="en" class="vis">Financial data:</span></h5>
+      <ul class="dash">
+        <li><span data-lang="es">Referencia de transferencia, recibos y facturas. <strong>Nunca almacenamos números de tarjeta.</strong></span><span data-lang="en" class="vis">Transfer reference, receipts and invoices. <strong>We never store card numbers.</strong></span></li>
+      </ul>
+      <div class="legal-callout">
+        <strong><span data-lang="es">No recabamos datos sensibles:</span><span data-lang="en" class="vis">We do NOT collect sensitive data:</span></strong> <span data-lang="es">origen racial o étnico, creencias religiosas, opiniones políticas, orientación sexual ni información de salud.</span><span data-lang="en" class="vis">racial or ethnic origin, religious beliefs, political opinions, sexual orientation, or health information.</span>
+      </div>
+    </div>
+
+    <div class="legal-section">
+      <h4><span class="num">III</span><span data-lang="es">Finalidades del Tratamiento</span><span data-lang="en" class="vis">Purposes of Processing</span></h4>
+      <h5><span data-lang="es">Finalidades primarias (necesarias):</span><span data-lang="en" class="vis">Primary purposes (necessary):</span></h5>
+      <ul class="no-counter">
+        <li><span data-lang="es"><strong>Gestión de la reservación</strong> (confirmación, agenda, comunicación de detalles).</span><span data-lang="en" class="vis"><strong>Reservation management</strong> (booking, scheduling, logistics).</span></li>
+        <li><span data-lang="es"><strong>Verificación de identidad</strong> al check-in.</span><span data-lang="en" class="vis"><strong>Identity verification</strong> at check-in.</span></li>
+        <li><span data-lang="es"><strong>Procesamiento de pagos</strong> (recibos, depósitos, reembolsos).</span><span data-lang="en" class="vis"><strong>Payment processing</strong> (receipts, deposits, refunds).</span></li>
+        <li><span data-lang="es"><strong>Cumplimiento con la administración</strong> del condominio (registro de huéspedes).</span><span data-lang="en" class="vis"><strong>Compliance with condominium administration</strong> (guest registration).</span></li>
+        <li><span data-lang="es"><strong>Atención directa</strong> por WhatsApp durante la estancia.</span><span data-lang="en" class="vis"><strong>Direct support</strong> via WhatsApp during stay.</span></li>
+      </ul>
+      <h5><span data-lang="es">Finalidades secundarias (opcionales — puedes oponerte):</span><span data-lang="en" class="vis">Secondary purposes (optional — you may object):</span></h5>
+      <ul class="no-counter">
+        <li><span data-lang="es">Envío de futuras ofertas promocionales.</span><span data-lang="en" class="vis">Sending future promotional offers.</span></li>
+        <li><span data-lang="es">Solicitud de comentarios o testimonios después de la estancia.</span><span data-lang="en" class="vis">Requesting feedback or testimonials after the stay.</span></li>
+      </ul>
+    </div>
+
+    <div class="legal-section">
+      <h4><span class="num">IV</span><span data-lang="es">Transferencias y Conservación</span><span data-lang="en" class="vis">Sharing & Retention</span></h4>
+      <p><span data-lang="es"><strong>No vendemos, rentamos ni comercializamos</strong> tus datos. Compartimos información limitada únicamente con:</span><span data-lang="en" class="vis"><strong>We do not sell, rent or commercialize</strong> your data. We share limited information only with:</span></p>
+      <ul class="dash">
+        <li><span data-lang="es"><strong>Administración del Condominio Las Palomas</strong> (nombres y fechas, conforme al reglamento interno).</span><span data-lang="en" class="vis"><strong>Las Palomas Condominium Administration</strong> (names and dates, per internal regulations).</span></li>
+        <li><span data-lang="es"><strong>Instituciones bancarias</strong> (transferencias y reembolsos).</span><span data-lang="en" class="vis"><strong>Banking institutions</strong> (transfers and refunds).</span></li>
+        <li><span data-lang="es"><strong>Autoridades fiscales (SAT)</strong> sólo para facturación cuando sea requerido.</span><span data-lang="en" class="vis"><strong>Tax authorities (SAT)</strong> only when legally required for invoicing.</span></li>
+        <li><span data-lang="es"><strong>Proveedores</strong>: Vercel (hosting, EE.UU.) y Google/Gmail (correo, EE.UU.).</span><span data-lang="en" class="vis"><strong>Providers</strong>: Vercel (hosting, USA) and Google/Gmail (email, USA).</span></li>
+        <li><span data-lang="es"><strong>Autoridades</strong> cuando sea requerido por orden legal válida.</span><span data-lang="en" class="vis"><strong>Authorities</strong> when required by valid legal order.</span></li>
+      </ul>
+      <h5><span data-lang="es">Plazos de conservación:</span><span data-lang="en" class="vis">Retention periods:</span></h5>
+      <ul class="dash">
+        <li><span data-lang="es">Datos de reservación y contacto: <strong>5 años</strong> (motivos legales y fiscales).</span><span data-lang="en" class="vis">Reservation and contact data: <strong>5 years</strong> (legal and tax purposes).</span></li>
+        <li><span data-lang="es">Copias de identificación: revisadas en check-in, <strong>eliminadas dentro de 30 días</strong> después del check-out.</span><span data-lang="en" class="vis">ID copies: reviewed at check-in, <strong>deleted within 30 days</strong> after check-out.</span></li>
+        <li><span data-lang="es">Datos de marketing: hasta que retires consentimiento.</span><span data-lang="en" class="vis">Marketing data: until you withdraw consent.</span></li>
+      </ul>
+    </div>
+
+    <div class="legal-section">
+      <h4><span class="num">V</span><span data-lang="es">Tus Derechos ARCO</span><span data-lang="en" class="vis">Your ARCO Rights</span></h4>
+      <p><span data-lang="es">Conforme a LFPDPPP de México (y derechos equivalentes bajo GDPR para huéspedes de UE/Reino Unido), tienes derecho a:</span><span data-lang="en" class="vis">Under Mexico's LFPDPPP (and equivalent rights under GDPR for EU/UK guests), you have the right to:</span></p>
+      <ul class="no-counter">
+        <li><strong>A</strong> · <span data-lang="es"><strong>Acceso</strong> — conocer qué datos personales tenemos sobre ti.</span><span data-lang="en" class="vis"><strong>Access</strong> — know what personal data we hold.</span></li>
+        <li><strong>R</strong> · <span data-lang="es"><strong>Rectificación</strong> — corregir datos inexactos o incompletos.</span><span data-lang="en" class="vis"><strong>Rectification</strong> — correct inaccurate data.</span></li>
+        <li><strong>C</strong> · <span data-lang="es"><strong>Cancelación</strong> — solicitar eliminación cuando ya no sean necesarios.</span><span data-lang="en" class="vis"><strong>Cancellation</strong> — request deletion when no longer needed.</span></li>
+        <li><strong>O</strong> · <span data-lang="es"><strong>Oposición</strong> — oponerte a usos específicos (ej. marketing).</span><span data-lang="en" class="vis"><strong>Opposition</strong> — object to specific uses (e.g. marketing).</span></li>
+        <li><strong>+</strong> <span data-lang="es"><strong>Portabilidad</strong> (GDPR) — recibir tus datos en formato estructurado.</span><span data-lang="en" class="vis"><strong>Portability</strong> (GDPR) — receive your data in a structured format.</span></li>
+      </ul>
+      <div class="legal-callout">
+        <span data-lang="es"><strong>Para ejercer estos derechos:</strong> envía solicitud a <a href="mailto:lgalvez@nielsen-technology.com?subject=Solicitud%20Derechos%20ARCO" style="color:var(--aqua);font-weight:700;">lgalvez@nielsen-technology.com</a> con asunto <em>"Solicitud Derechos ARCO"</em>. Responderemos dentro de <strong>20 días hábiles</strong>. En México puedes acudir al INAI (<a href="https://home.inai.org.mx" target="_blank" rel="noopener" style="color:var(--aqua);">www.inai.org.mx</a>).</span><span data-lang="en" class="vis"><strong>To exercise these rights:</strong> send a request to <a href="mailto:lgalvez@nielsen-technology.com?subject=ARCO%20Rights%20Request" style="color:var(--aqua);font-weight:700;">lgalvez@nielsen-technology.com</a> with subject <em>"ARCO Rights Request"</em>. We will respond within <strong>20 business days</strong>. In Mexico, you may file complaints with INAI (<a href="https://home.inai.org.mx" target="_blank" rel="noopener" style="color:var(--aqua);">www.inai.org.mx</a>).</span>
+      </div>
+    </div>
+
+    <div class="legal-section">
+      <h4><span class="num">VI</span><span data-lang="es">Cookies, Seguridad y Menores</span><span data-lang="en" class="vis">Cookies, Security & Minors</span></h4>
+      <h5><span data-lang="es">Cookies y analítica:</span><span data-lang="en" class="vis">Cookies & analytics:</span></h5>
+      <p><span data-lang="es">El sitio <strong>no utiliza cookies, píxeles de rastreo ni herramientas de analítica</strong>. Los únicos contenidos de terceros son iframes de Google Maps (sólo se cargan al hacer click en una tarjeta de destino) y enlaces WhatsApp/email.</span><span data-lang="en" class="vis">The site <strong>does not use cookies, tracking pixels or analytics tools</strong>. The only third-party content is Google Maps iframes (loaded only when clicking a destination card) and WhatsApp/email links.</span></p>
+      <h5><span data-lang="es">Medidas de seguridad:</span><span data-lang="en" class="vis">Security measures:</span></h5>
+      <ul class="dash">
+        <li><span data-lang="es">Almacenamiento cifrado con autenticación de dos factores.</span><span data-lang="en" class="vis">Encrypted storage with two-factor authentication.</span></li>
+        <li><span data-lang="es">Acceso limitado únicamente al Arrendador.</span><span data-lang="en" class="vis">Access limited to the Host / Lessor only.</span></li>
+        <li><span data-lang="es">HTTPS (cifrado TLS) en el sitio web.</span><span data-lang="en" class="vis">HTTPS (TLS encryption) on the website.</span></li>
+      </ul>
+      <h5><span data-lang="es">Menores de edad:</span><span data-lang="en" class="vis">Minors:</span></h5>
+      <p><span data-lang="es">Las reservas las realiza siempre una persona mayor de edad (18+). Los datos de menores que viajen como parte de un grupo familiar se procesan únicamente como parte de la reservación del huésped titular.</span><span data-lang="en" class="vis">Reservations are always made by an adult (18+). Data of minors traveling as part of a family group is processed only as part of the head guest's reservation.</span></p>
+    </div>
+
+    <p class="terms-foot"><span data-lang="es">📅 Vigente desde mayo 2026 · Versión 1.0 · Para cualquier duda escribe a <a href="mailto:lgalvez@nielsen-technology.com" style="color:var(--aqua-d);font-weight:700;">lgalvez@nielsen-technology.com</a></span><span data-lang="en" class="vis">📅 Effective May 2026 · Version 1.0 · For any questions write to <a href="mailto:lgalvez@nielsen-technology.com" style="color:var(--aqua-d);font-weight:700;">lgalvez@nielsen-technology.com</a></span></p>
   </div>
 </div>
 
